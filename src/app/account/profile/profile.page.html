@@ -1,0 +1,103 @@
+<ion-content *ngIf="data" fullscreen>
+
+    <!-- Header -->
+    <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+        <ion-icon name="chevron-back-outline" (click)="back()"></ion-icon>
+      </ion-buttons>
+
+      <ion-text id="icon_head_move" slot="end"  #searchicon>
+        <h2>{{ data.saldo | currency }}</h2>
+      </ion-text>
+    </ion-toolbar>
+
+    <ion-toolbar color="secondary">
+      <div class="address_pin">
+        <ion-label id="label_head_move" *ngIf="!data">
+          <ion-skeleton-text animated style="width: 40%;height:25px;"></ion-skeleton-text><br />
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </ion-label>
+        <ion-label id="label_head_move">
+          <h2>{{ text.profile_heading }}</h2>
+          <span>{{'welcome_prof' | translate}} <br /><b>{{ data.name }}</b></span>
+        </ion-label>
+      </div>
+    </ion-toolbar>
+    <!-- Header -->
+
+  <ion-card mode="ios" class="first_cards">
+
+    <ion-card-header>
+      <ion-card-title>
+        {{'config_text' | translate}}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-list lines="none">
+        <ion-item routerLink="/history" routerDirection="forward">
+          <ion-icon slot="start" color="medium" name="cart"></ion-icon>
+          <ion-label>{{'order_history_text' | translate}}</ion-label>
+        </ion-item>
+
+        <ion-item routerLink="/option-pay" routerDirection="forward">
+          <ion-icon slot="start" color="medium" name="wallet"></ion-icon>
+          <ion-label>{{'payment_methods' | translate}}</ion-label>
+        </ion-item>
+
+        <ion-item routerLink="/add-credit" routerDirection="forward">
+          <ion-icon slot="start" color="medium" name="cash-sharp"></ion-icon>
+          <ion-label>{{'add_credit' | translate}}</ion-label>
+        </ion-item>
+
+        <ion-item (click)="changeLang()">
+          <ion-icon slot="start" color="medium" name="globe-sharp"></ion-icon>
+          <ion-label>{{'change_language' | translate}}</ion-label>
+        </ion-item>
+
+        <ion-item (click)="takeAction(1)">
+          <ion-icon slot="start" color="medium" name="build"></ion-icon>
+          <ion-label>{{'config_text' | translate}}</ion-label>
+        </ion-item>
+
+        <ion-item (click)="logout()">
+          <ion-icon slot="start" color="medium" name="log-out"></ion-icon>
+          <ion-label>{{ 'logout' | translate}}</ion-label>
+        </ion-item>
+    </ion-list>
+
+  </ion-card>
+
+  <!-- Personal Information -->
+  <ion-card mode="ios" *ngIf="action == 1">
+    <form #form="ngForm" (ngSubmit)="update(form.value)">
+
+      <ion-card-header>
+        <ion-card-subtitle>{{ 'update_account' | translate }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'name' | translate }}</ion-label>
+        <ion-input type="text" name="name" [(ngModel)]="data.name" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'email_address' | translate }}</ion-label>
+        <ion-input type="email" name="email" [(ngModel)]="data.email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'Phone' | translate }}</ion-label>
+        <ion-input type="tel" name="phone" [(ngModel)]="data.phone" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'create_password' | translate }}</ion-label>
+        <ion-input type="password" name="password" ngModel></ion-input>
+      </ion-item>
+      <br>
+
+      <ion-button expand="block" mode="ios" type="submit" [disabled]="!form" style="width: 90%;margin-left: 5%">{{ 'update_text' | translate }}</ion-button>
+    </form>
+  </ion-card>
+
+</ion-content>

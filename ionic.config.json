@@ -1,0 +1,7 @@
+{
+  "name": "Boxi app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

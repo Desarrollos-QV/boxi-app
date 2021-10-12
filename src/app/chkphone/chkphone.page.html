@@ -1,0 +1,44 @@
+<ion-header no-border class="ion-no-border">
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Verify SMS OTP -->
+<div >
+  <ion-card-header>
+    <ion-row>
+        <ion-col>
+        <h1 class="welcome_text">
+            {{'sms_verify' | translate}}
+        </h1>
+        </ion-col>
+    </ion-row>
+    <p style="color: rgb(85, 85, 85);font-weight: 500;font-style: normal;font-size: 14px;">
+        {{'verify_code1' | translate}} &nbsp;{{phone_view}}&nbsp; {{'verify_code2' | translate}}
+    </p>
+  </ion-card-header>
+
+
+  <ion-item class="digit-group" lines="none">
+    <ion-input type="tel" #otp1 [(ngModel)]="Code" maxLength="6" required placeholder="ej.- 859754"></ion-input>
+  </ion-item>
+  
+  <p align="center" *ngIf="resend_stat" style="font-weight: 500;font-style: normal"> 
+      {{'not_code' | translate}} <a  routerLink="/home" routerDirection="root">{{'resend' | translate}}</a>
+  </p>
+
+  <ion-button class="btn_next" (click)="valid()" color="dark" shape="round" style="--border-radius:25px;">
+      {{'valid' | translate}}
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+  </ion-button>
+</div>
+<!-- Verify SMS OTP -->
+
+</ion-content>

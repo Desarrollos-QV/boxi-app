@@ -1,0 +1,54 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-androidx": {
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-plugin-geolocation": {
+      "GPS_REQUIRED": "true",
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-plugin-nativegeocoder": {
+      "LOCATION_WHEN_IN_USE_DESCRIPTION": "Use geocoder service",
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-plugin-stripe": {
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.boxi.app"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "com.boxi.app"
+    }
+  }
+}

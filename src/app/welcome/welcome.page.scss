@@ -1,0 +1,81 @@
+ion-content.ion-padding{
+    --background: url(../../assets/bg_wel.jpeg) 0 0/100% 100% no-repeat;
+}
+
+.banner {
+    position: absolute;
+    width: 50%;
+    bottom: 90px;left:15px;
+    margin:15px auto;
+    
+    .logo {
+        display: block;
+        margin:15px auto;
+        
+        p {
+            width: 80%;
+            color:#fff;
+            font-size: 24px;
+        }
+    }
+  
+}
+  
+.social_btns {
+    position: absolute;
+    bottom: 25px;
+    margin:0 auto;
+    width: 100%;
+
+    ion-button {
+        width: 40%;
+        height: 45px;
+        margin:15px 10px;
+        --border-radius: 25px;
+        display: inline-block;
+        text-transform:none;
+
+        &:first-child {
+            margin-left: 0 !important;
+        }
+
+        &.new {
+            --background:#ffffff;
+            color: #000;
+        }
+
+
+        &.phone {
+            border: 1px solid #ffff;
+            --background:transparent;
+            border-radius: 25px;
+            color: #fff;
+        }
+    }
+}
+
+@media screen and (max-width:960px) { 
+    .banner,
+    .social_btns {
+        width: 75%;
+    }   
+}
+
+@media screen and (max-width:768px) { 
+    .banner,
+    .social_btns {
+        width: 100%;
+    }   
+
+    .banner {
+        margin:50% auto 0 auto;
+    }
+}
+
+.animate__animated.animate__fadeInUp {
+--animate-duration: .2;
+}
+
+.animate__animated.animate__zoomInUp {
+--animate-duration: 1s;
+}

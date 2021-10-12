@@ -1,0 +1,55 @@
+<ion-content *ngIf="data" fullscreen>
+
+<ion-card class="header_cards" color="success">
+  <!-- Header -->
+  <div>
+    <ion-buttons slot="start">
+      <ion-icon name="chevron-back-outline" (click)="back()"></ion-icon>
+    </ion-buttons>
+  </div>
+
+  <div>
+    <div class="address_pin">
+      <ion-label id="label_head_move" *ngIf="!data">
+        <ion-skeleton-text animated style="width: 40%;height:25px;"></ion-skeleton-text><br />
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </ion-label>
+      <ion-label id="label_head_move">
+        <h2>{{ data.saldo | currency }}</h2>
+        <span>{{ 'your_total_balance' | translate}}<br /><b>{{ data.name }}</b></span>
+      </ion-label>
+    </div>
+  </div>
+  <!-- Header -->
+  
+</ion-card>
+
+<ion-card mode="ios" class="first_cards">
+
+  <ion-card-header>
+    <ion-card-title>
+      {{ 'transactions' | translate }}
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-list lines="none">
+      <ion-item *ngFor="let bal of history_bal">
+        <ion-icon slot="start" color="success" *ngIf="bal.status == 1" name="checkmark-circle-sharp"></ion-icon>
+        <ion-icon slot="start" color="meduim" *ngIf="bal.status == 2" name="close-circle-sharp"></ion-icon>
+        <ion-label>
+          <span>{{'amount_text' | translate}}: <b>{{bal.amount | currency}}</b></span>
+          <h3>{{'date_Text' | translate}}: {{ chkDate(bal.created_at) }}</h3>
+        </ion-label>
+      </ion-item>
+  </ion-list>
+
+</ion-card>
+
+
+<!-- Add credit -->
+<ion-button mode="ios" class="cart_btn animate__animated animate__bounceInUp" (click)="addSaldo()">
+  {{'add_credit' | translate }}
+</ion-button>
+<!-- Add credit -->
+
+</ion-content>

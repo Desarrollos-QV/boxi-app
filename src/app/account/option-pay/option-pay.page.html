@@ -1,0 +1,80 @@
+<ion-content fullscreen>
+
+  <!-- Header -->
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-icon name="chevron-back-outline" (click)="back()"></ion-icon>
+      </ion-buttons>
+    </ion-toolbar>
+
+    <ion-toolbar color="primary">
+      <div class="address_pin">
+        <ion-label id="label_head_move" *ngIf="!user">
+          <ion-skeleton-text animated style="width: 40%;height:25px;"></ion-skeleton-text><br />
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </ion-label>
+        <ion-label id="label_head_move" *ngIf="user">
+          <h2>{{user.saldo | currency}}</h2>
+          <span>{{'your_balance' | translate}}</span>
+        </ion-label>
+      </div>
+    </ion-toolbar>
+  <!-- Header -->
+
+  <!-- Content -->
+  <ion-card class="first_cards">
+    <ion-card-header>
+      <ion-card-title>
+        {{'payment_methods' | translate}}
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <!-- Content -->
+
+   <!-- Por Defecto -->
+   <ion-list class="defaults_items">
+    <ion-radio-group value="{{otype}}" (ionChange)="setType($event)">
+      <ion-list-header>
+        <span>{{'default_method' | translate}}</span>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="assets/cash_icon.png" alt="Cash">
+        </ion-thumbnail>
+
+        <ion-label>
+          <h3>{{'cash_payment' | translate}}</h3>
+        </ion-label>
+
+        <ion-radio slot="end" value="1"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="assets/my_bal_icon.png" alt="Cash">
+        </ion-thumbnail>
+
+        <ion-label>
+          <h3>{{'balance_payment' | translate}}</h3>
+        </ion-label>
+
+        <ion-radio slot="end" value="2"></ion-radio>
+      </ion-item>
+      
+      <ion-item *ngIf="stripe_id">
+        <ion-thumbnail slot="start">
+          <img src="assets/card_icon.png" alt="Stripe">
+        </ion-thumbnail>
+
+        <ion-label>
+          <h3>{{'card_payment' | translate}}</h3>
+        </ion-label>
+        <!-- (ionSelect)="setType(3)" [checked]="otype == 3" -->
+        <ion-radio slot="end" value="3"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <!-- Por Defecto -->
+
+</ion-content>

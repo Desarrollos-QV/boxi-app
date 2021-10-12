@@ -1,0 +1,52 @@
+<ion-header no-border class="ion-no-border">
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen>
+
+<!--Send SMS for otp-->
+<div class="wrap-content">
+  <div>
+    <div class="form">
+        <ion-list lines="none">
+            <h1>{{'phone_number' | translate}}</h1>
+            <p class="d-flex ion-text-left" style="font-weight: 500;font-size: 14px;">
+              {{'code_sms' | translate}}
+            </p>
+
+            <ion-item lines="none">
+              <div class="item_inner d-flex">
+                <h3 class="d-flex">
+                  <img src="{{img_prefjix}}" alt="mex_flag" style="max-width: 30%;">
+                  &nbsp;&nbsp;<ion-label>{{prefjix}}</ion-label>
+                </h3>
+                <ion-input mode="md" #phone pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" clearInput minlength="10" name="phone" type="tel" placeholder="477 123 4567"></ion-input>
+              </div>
+            </ion-item>
+
+        </ion-list>
+    </div>
+
+    <div style="text-align: center;">
+      <div id="recaptcha-container" style="display: inline-block;"></div>
+    </div>
+  </div>
+</div>
+
+<ion-button class="btn_next" *ngIf="isKeyboardHide" (click)="login()" color="dark" shape="round" style="--border-radius:25px;">
+  {{'next' | translate}}
+  <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+</ion-button>
+<!--Send SMS for otp-->
+</ion-content>
+
+<ion-footer style="padding: 15px;text-align: center;" *ngIf="isKeyboardHide">
+  <ion-label color="medium"  mode="ios" routerLink="/signup" routerDirection="forward">{{'no_account' | translate}} <b>{{'sign_up' | translate}}</b></ion-label> 
+</ion-footer>

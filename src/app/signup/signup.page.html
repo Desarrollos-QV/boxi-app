@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+      </ion-buttons>
+      <ion-title *ngIf="text">
+        {{text.signup_title}}
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form #form="ngForm" (ngSubmit)="signup(form.value)">
+    <ion-input type="hidden" name="phone" ngModel value="{{phone}}"></ion-input>
+                
+    <div class="form">
+      <ion-list lines="none">
+          <h1>{{'join_app' | translate}} Boxi App</h1>
+         
+          <div class="code_ref animate__animated animate__fadeInUp">
+            <label>{{'complete_name' | translate}}</label>
+            <ion-input mode="md" type="text" clearInput name="name" ngModel placeholder="Sam Smith" required></ion-input>
+          </div>
+          
+          <div class="code_ref animate__animated animate__fadeInUp">
+            <label>{{'email_address' | translate}}</label>
+            <ion-input mode="md" type="email" clearInput name="email" ngModel placeholder="SamSmith@mail.com" required></ion-input>
+          </div>
+
+          <div class="code_ref animate__animated animate__fadeInUp" *ngIf="phone">
+            <label>{{'phone' | translate}}</label>
+            <ion-input mode="md" type="tel" clearInput name="phone" [(ngModel)]="phone" placeholder="656 123 9856" required></ion-input>
+          </div>
+
+          <div class="code_ref animate__animated animate__fadeInUp">
+            <label>{{'password' | translate}}</label>
+            <ion-input mode="md" type="password" clearInput name="password" ngModel placeholder="**********" required></ion-input>
+          </div>
+
+      </ion-list>
+    </div>
+    
+    <ion-button class="btn_next" *ngIf="isKeyboardHide" [disabled]="!form.valid" type="submit" color="dark" shape="round" style="--border-radius:25px;">
+      {{'sign_in' | translate}}
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+  </form>
+</ion-content>

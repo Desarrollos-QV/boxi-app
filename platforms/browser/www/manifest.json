@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Boxi App",
+  "short_name": "Boxi App",
+  "version": "com.boxi.app",
+  "description": "Apicación de transporte y envios.",
+  "author": "Desarrollos QV",
+  "icons": [],
+  "start_url": "index.html",
+  "theme_color": "#FFFFFF"
+}

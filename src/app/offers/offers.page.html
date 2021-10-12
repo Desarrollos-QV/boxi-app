@@ -1,0 +1,32 @@
+<ion-header no-border class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start" mode="ios" text=""></ion-back-button>
+    <ion-title>
+      {{'list_promotions' | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+  <ion-content *ngIf="data">
+  
+  <ion-list *ngIf="data.length > 0">
+  
+    <ion-card *ngFor="let offer of data">
+      <img src="https://boxi.grupoorus.mx/upload/offers/{{offer.img}}" />
+      
+      <ion-card-header>
+        <ion-card-title style="color:green;">{{'code_offer' | translate}} {{offer.code}}</ion-card-title>
+        <ion-card-subtitle>{{offer.description}}</ion-card-subtitle>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <span *ngIf="offer.min_cart_value > 0">{{'offer_more_then' | translate}}{{offer.min_cart_value | currency}}</span>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  
+  <p *ngIf="data.length == 0" style="text-align: center;padding: 10px 10px;font-size: 11px;color:gray;line-height: 2">
+    {{'not_cupons' | translate}}
+  </p>
+   
+  </ion-content>

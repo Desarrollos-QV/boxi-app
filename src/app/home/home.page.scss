@@ -1,0 +1,80 @@
+
+ion-toolbar {
+    width: 100%;
+    padding:5px 12px;
+
+    ion-buttons {
+        width: 30%;
+
+        ion-menu-button {
+        background: #fff; //#f4f5f8;
+        color: #4c4c4c;
+        border-radius: 12px;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #e6e6e6;
+        -webkit-box-shadow: 0px 4px 14px -9px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 4px 14px -9px rgba(0,0,0,0.75);
+        box-shadow: 0px 4px 14px -9px rgba(0,0,0,0.75);
+
+        img {
+            width: 100%;
+        }
+        }
+    }
+
+    ion-text {
+        width: 70%;
+        position: relative;
+        float: right;
+        margin-right: 0px;
+        
+        img {
+            width: 40px;
+            height: 40px;
+            background:#f0f0f0;
+            border-radius: 15px;
+            margin:0 7px;
+            padding: 7px;
+            
+            -webkit-box-shadow: 0px 4px 14px -9px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 4px 14px -9px rgba(0,0,0,0.75);
+            box-shadow: 0px 4px 14px -9px rgba(0,0,0,0.75);
+        }
+
+    }
+    
+    .address_pin {
+        width: 100%;
+        position: relative;
+        padding: 10px 15px;
+        columns: auto;
+        column-width: 50%;
+        justify-content: center;
+        margin-bottom: 50px;
+    
+            ion-label {
+                position: relative;
+                
+                h2 {
+                    font-size: 28px;
+                    font-weight: 700;
+                }
+            }
+           
+    }
+}
+
+.first_cards {
+    width: 100%;
+    margin:-40px auto 0 auto;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    z-index: 1000;
+
+    ion-card-header {
+        margin-top: 10px;
+    }
+
+}

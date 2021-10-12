@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Boxi App</string>
+    <string name="launcher_name">@string/app_name</string>
+    <string name="activity_name">@string/launcher_name</string>
+    <style name="Theme.Blanc" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+        <item name="isLightTheme">true</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowActionBarOverlay">false</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+    </style>
+</resources>

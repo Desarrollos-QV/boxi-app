@@ -1,0 +1,105 @@
+<ion-header class="bg_transparent">
+	<ion-toolbar>
+		<ion-buttons slot="start" class="ion-text-center">
+			<ion-icon name="arrow-back" (click)="backPage()"></ion-icon>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  
+  <!-- Buscando Repartidor -->
+    <div class="bg_pic" *ngIf="status == 0 || status == 3">
+      <img src="/assets/search_driver.png" alt="Buscando repartidor">
+    </div>
+
+    <div id="container" *ngIf="status == 0 || status == 3">
+      <div class="item">
+        <img src="/assets/car_top.png" />
+      </div>
+      <div class="circle" style="animation-delay: 0s"></div>
+      <div class="circle" style="animation-delay: 1s"></div>
+      <div class="circle" style="animation-delay: 2s"></div>
+      <div class="circle" style="animation-delay: 3s"></div>
+    </div>
+
+    <ion-card *ngIf="status == 0" class="search_r_text animate__animated animate__fadeInUp">
+      <ion-card-header>
+        Buscando repartidor para tu pedido
+      </ion-card-header>
+
+      <ion-card-content>
+        <section>
+          <ion-button size="small" color="primary" mode="ios" (click)="cancelComm_event(order_id)">Cancelar pedido</ion-button>
+        </section>
+      </ion-card-content>
+
+      <ion-progress-bar type="indeterminate"></ion-progress-bar>
+    </ion-card>
+
+    <ion-card *ngIf="status == 3" class="search_r_text ion-text-center animate__animated animate__fadeInUp">
+      <ion-card-header>
+        No pudimos encontrar repartidor
+      </ion-card-header>
+      
+      <ion-card-content>
+        <section>
+          <ion-button size="small" color="success" mode="ios" (click)="chkEvents_staffs(order_id)">Volver a solicitar</ion-button>
+          <ion-button size="small" color="primary" mode="ios" (click)="cancelComm_event(order_id)">Cancelar pedido</ion-button>
+        </section>
+      </ion-card-content>
+    </ion-card>
+  <!-- Buscando Repartidor -->
+
+  <!-- Repartidor acepto pedido -->
+  <div class="map-wrapper" *ngIf="status == 1 || status == 4 || status == 4.5 || status == 5">
+    <div id="map_center">
+    </div>
+    <div #map id="map"></div>
+  </div>
+
+  <ion-card *ngIf="status == 1 || status == 4 || status == 4.5 || status == 5" class="staff_inrute_text">
+    <ion-card-header>
+      Seguimiento de ruta.
+    </ion-card-header>
+    
+    <ion-card-content>
+      
+      <div class="container">
+        <div class="timeline-block timeline-block-right animate__animated animate__fadeInRight" *ngIf="box_end">
+          <div class="marker"></div>
+          <div class="timeline-content">
+             <h6>Paquete entregado</h6>
+             <p>Tu paquete ha sido entregado con éxito.</p>
+          </div>
+        </div>
+
+        <div class="timeline-block timeline-block-right animate__animated animate__fadeInRight" *ngIf="box_rute">
+          <div class="marker"></div>
+          <div class="timeline-content">
+             <h6>Paquete en camino</h6>
+             <p>Tu paquete va en camino al destino.</p>
+          </div>
+        </div>
+
+        <div class="timeline-block timeline-block-right animate__animated animate__fadeInRight" *ngIf="box_rec">
+          <div class="marker"></div>
+          <div class="timeline-content">
+             <h6>Paquete recolectado</h6>
+             <p>Tu paquete ha sido recolectado.</p>
+          </div>
+        </div>
+
+        <div class="timeline-block timeline-block-right animate__animated animate__fadeInRight">
+           <div class="marker"></div>
+           <div class="timeline-content">
+              <h6>Pedido Aceptado</h6>
+              <p>El pedido fue aceptado por el repartidor.</p>
+           </div>
+        </div>
+     </div>
+    </ion-card-content>
+  </ion-card>
+  <!-- Repartidor acepto pedido -->
+</ion-content>

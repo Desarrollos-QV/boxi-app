@@ -1,0 +1,111 @@
+<ion-content>
+
+  <ion-card class="success">
+    <ion-card-header>
+      <img src="assets/ic_success.png" alt="success icon" style="width: 25%;">
+      
+      <ion-card-title>
+        {{'order_delivered' | translate}}
+      </ion-card-title>
+
+      <ion-card-subtitle *ngIf="data" class="ion-text-left">
+        <div class="container">
+          <div class="timeline-block timeline-block-right animate__animated animate__fadeInRight">
+            <div class="marker"></div>
+            <div class="timeline-content">
+               <p>{{data.event.address_origin | slice:0:50}}...</p>
+            </div>
+          </div>
+  
+          <div class="timeline-block timeline-block-right animate__animated animate__fadeInRight">
+            <div class="marker"></div>
+            <div class="timeline-content">
+               <p>{{data.event.address_destin | slice:0:50}}...</p>
+            </div>
+          </div>
+       </div>
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content style="padding: 0 !important;margin:0 !important;">
+      <form #form="ngForm" (ngSubmit)="giveRating(form.value)" style="padding: 0 !important;margin:0 !important;">
+        <ion-list class="ion-text-center">
+          <h6>{{ 'rating_heading_text' | translate}}</h6>
+          <br>
+          <ion-row style="font-size: 35px;color:#4FC1E9" *ngIf="star == 0">
+            <ion-col size="1" (click)="setStar(1)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(2)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(3)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(4)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(5)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+          </ion-row>
+          
+          <ion-row style="font-size: 35px;color:#4FC1E9" *ngIf="star == 1">
+            <ion-col size="1" (click)="setStar(1)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(2)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(3)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(4)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(5)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+          </ion-row>
+          
+          <ion-row style="font-size: 35px;color:#4FC1E9" *ngIf="star == 2">
+            <ion-col size="1" (click)="setStar(1)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(2)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(3)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(4)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(5)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+          </ion-row>
+          
+          <ion-row style="font-size: 35px;color:#4FC1E9" *ngIf="star == 3">
+            <ion-col size="1" (click)="setStar(1)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(2)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(3)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(4)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(5)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+          </ion-row>
+          
+          <ion-row style="font-size: 35px;color:#4FC1E9" *ngIf="star == 4">
+            <ion-col size="1" (click)="setStar(1)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(2)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(3)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(4)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(5)" style="margin: 0 12px;"><ion-icon name="star-outline"></ion-icon></ion-col>
+          </ion-row>
+          
+          <ion-row style="font-size: 35px;color:#4FC1E9" *ngIf="star == 5">
+            <ion-col size="1" (click)="setStar(1)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(2)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(3)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(4)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+            <ion-col size="1" (click)="setStar(5)" style="margin: 0 12px;"><ion-icon name="star"></ion-icon></ion-col>
+          </ion-row>
+        </ion-list>
+
+        <ion-list style="padding: 0 !important;margin:0 !important;">
+          
+          <ion-item style="padding: 0 !important;margin:0 !important;">
+            <ion-label>{{'good_attention_text' | translate}}</ion-label>
+            <ion-toggle ngModel name="good_attention" mode="ios"></ion-toggle>
+          </ion-item>
+
+          <ion-item style="padding: 0 !important;margin:0 !important;">
+            <ion-label>{{'efficient_delivery_text' | translate}}</ion-label>
+            <ion-toggle ngModel name="efficient_delivery" mode="ios"></ion-toggle>
+          </ion-item>
+
+        </ion-list>
+        
+        <ion-item>
+          <ion-textarea ngModel name="comment" placeholder="{{ text.rating_msg }}"></ion-textarea>
+        </ion-item>
+
+        <div class="btn">
+          <ion-button color="primary" [disabled]="form.invalid" type="submit"  mode="ios">
+            {{'qualify' | translate}}
+          </ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-app [dir]="rtlSide">
+  <ion-split-pane contentId="main-content">
+    <ion-menu mode="ios" contentId="main-content" type="overlay">
+
+      <ion-header no-border class="ion-no-border">
+        <ion-menu-toggle auto-hide="false">
+          <div class="banner" routerLink="/profile" routerDirection="forward">
+            <div class="info">
+              
+              <div class="text_box" *ngIf="user">
+                <p>Hola</p>
+                <h2>{{user.name}}</h2>
+              </div>
+
+              <div class="img_box">
+                <img src="https://image.flaticon.com/icons/png/512/1246/1246483.png" class="crop_img" style="border-radius: 50%;">
+              </div>
+              
+            </div>
+          </div>
+        </ion-menu-toggle>
+      </ion-header>
+
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon slot="start" name="{{p.icon}}"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list id="labels-list">
+          <ion-list-header>{{ info_text }}</ion-list-header>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let label of labels">
+            <ion-item lines="none" routerDirection="forward" [routerLink]="[label.url]" routerLinkActive="selected">
+              <ion-label>{{ label.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          
+          <ion-item lines="none" (click)="logout()">
+            <ion-icon slot="start" name="log-out"></ion-icon>
+            <ion-label>{{ logout_btn }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

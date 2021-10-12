@@ -1,0 +1,73 @@
+<ion-content fullscreen>
+
+  <ion-card class="header_cards" color="primary">
+    <!-- Header -->
+    <div>
+      <ion-buttons slot="start">
+        <ion-icon name="chevron-back-outline" (click)="back()"></ion-icon>
+      </ion-buttons>
+    </div>
+  
+    <div>
+      <div class="address_pin">
+        <ion-label id="label_head_move">
+          <h2>{{'history_text' | translate}}</h2>
+        <span>{{'check_your_history' | translate}}.</span>
+        </ion-label>
+      </div>
+    </div>
+    <!-- Header -->
+    
+  </ion-card>
+  
+  <ion-card mode="ios" class="first_cards">
+  
+    <ion-list lines="none">
+      <ion-card class="welcome-card" *ngFor="let order of event" mode="ios">
+        <ion-card-header>
+
+          <ion-card-subtitle>
+            (#{{order.id }}) <ion-badge color="primary" style="float:right">{{ order.total | currency}}</ion-badge>
+          </ion-card-subtitle>
+          <br>
+
+          <ion-row>
+            <ion-col size="5"><b> {{ 'date_Text' | translate}}</b></ion-col>
+            <ion-col size="7">{{ order.date }}</ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="5"><b> {{ 'history_status' | translate }}</b></ion-col>
+            <ion-col size="7">{{ order.status }}</ion-col>
+          </ion-row>
+
+          <ion-row>
+            <div class="container">
+                <div class="timeline-block timeline-block-right">
+                  <div class="marker"></div>
+                  <div class="timeline-content">
+                    <h6>{{'point_origin' | translate}}</h6>
+                    <p>{{order.event.address_origin | slice:0:50}}...</p>
+                  </div>
+                </div>
+        
+                <div class="timeline-block timeline-block-right">
+                  <div class="marker"></div>
+                  <div class="timeline-content">
+                    <h6>{{'point_destin' | translate}}</h6>
+                    <p>{{order.event.address_destin | slice:0:50}}...</p>
+                  </div>
+                </div>
+            </div>
+          </ion-row>
+          <br>
+          <ion-button *ngIf="order.hasRating == 0" fill="outline" size="small" color="primary" (click)="viewRateTrip(order)">{{'qualify' | translate}}</ion-button>
+          <ion-button *ngIf="order.st == 0" fill="outline" size="small" style="float: right" (click)="cancelOrder(order.id)">{{'cancel_order' | translate}}</ion-button>
+        </ion-card-header>
+      </ion-card>
+    </ion-list>
+  
+  </ion-card>
+  
+  </ion-content>
+  

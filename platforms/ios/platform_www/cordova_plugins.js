@@ -97,32 +97,12 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "onesignal-cordova-plugin.OneSignalPlugin",
-      "file": "plugins/onesignal-cordova-plugin/www/OneSignalPlugin.js",
+      "id": "onesignal-cordova-plugin.OneSignal",
+      "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
       "pluginId": "onesignal-cordova-plugin",
       "clobbers": [
         "OneSignal"
       ]
-    },
-    {
-      "id": "onesignal-cordova-plugin.NotificationReceived",
-      "file": "plugins/onesignal-cordova-plugin/www/NotificationReceived.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-      "id": "onesignal-cordova-plugin.NotificationOpened",
-      "file": "plugins/onesignal-cordova-plugin/www/NotificationOpened.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-      "id": "onesignal-cordova-plugin.InAppMessage",
-      "file": "plugins/onesignal-cordova-plugin/www/InAppMessage.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-      "id": "onesignal-cordova-plugin.Subscription",
-      "file": "plugins/onesignal-cordova-plugin/www/Subscription.js",
-      "pluginId": "onesignal-cordova-plugin"
     }
   ];
   module.exports.metadata = {
@@ -138,6 +118,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-stripe": "1.5.3",
     "cordova-plugin-whitelist": "1.3.3",
-    "onesignal-cordova-plugin": "3.0.0"
+    "onesignal-cordova-plugin": "2.8.4"
   };
 });

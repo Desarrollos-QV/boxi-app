@@ -56,7 +56,7 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"OneSignalPush\"><param name=\"android-package\" value=\"com.onesignal.cordova.OneSignalPush\" /></feature>",
+              "xml": "<feature name=\"OneSignalPush\"><param name=\"android-package\" value=\"com.plugin.gcm.OneSignalPush\" /></feature>",
               "count": 1
             }
           ]
@@ -89,6 +89,34 @@
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+              "count": 1
+            }
+          ],
+          "/manifest": [
+            {
+              "xml": "<uses-permission android:name=\"com.amazon.device.messaging.permission.RECEIVE\" />",
+              "count": 1
+            },
+            {
+              "xml": "<permission android:name=\"com.boxi.app.permission.RECEIVE_ADM_MESSAGE\" android:protectionLevel=\"signature\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"com.boxi.app.permission.RECEIVE_ADM_MESSAGE\" />",
+              "count": 1
+            }
+          ],
+          "/manifest/application": [
+            {
+              "xml": "<amazon:enable-feature android:name=\"com.amazon.device.messaging\" android:required=\"false\" xmlns:amazon=\"http://schemas.amazon.com/apk/res/android\" />",
+              "count": 1
+            },
+            {
+              "xml": "<service android:exported=\"false\" android:name=\"com.onesignal.ADMMessageHandler\" />",
+              "count": 1
+            },
+            {
+              "xml": "<receiver android:name=\"com.onesignal.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.boxi.app\" /></intent-filter></receiver>",
               "count": 1
             }
           ]
@@ -158,10 +186,10 @@
     "cordova-plugin-androidx-adapter": {
       "PACKAGE_NAME": "com.boxi.app"
     },
-    "onesignal-cordova-plugin": {
+    "cordova-plugin-ionic-webview": {
       "PACKAGE_NAME": "com.boxi.app"
     },
-    "cordova-plugin-ionic-webview": {
+    "onesignal-cordova-plugin": {
       "PACKAGE_NAME": "com.boxi.app"
     }
   },
@@ -230,39 +258,19 @@
       ]
     },
     {
-      "id": "onesignal-cordova-plugin.OneSignalPlugin",
-      "file": "plugins/onesignal-cordova-plugin/www/OneSignalPlugin.js",
-      "pluginId": "onesignal-cordova-plugin",
-      "clobbers": [
-        "OneSignal"
-      ]
-    },
-    {
-      "id": "onesignal-cordova-plugin.NotificationReceived",
-      "file": "plugins/onesignal-cordova-plugin/www/NotificationReceived.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-      "id": "onesignal-cordova-plugin.NotificationOpened",
-      "file": "plugins/onesignal-cordova-plugin/www/NotificationOpened.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-      "id": "onesignal-cordova-plugin.InAppMessage",
-      "file": "plugins/onesignal-cordova-plugin/www/InAppMessage.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-      "id": "onesignal-cordova-plugin.Subscription",
-      "file": "plugins/onesignal-cordova-plugin/www/Subscription.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
       "id": "cordova-plugin-ionic-webview.IonicWebView",
       "file": "plugins/cordova-plugin-ionic-webview/src/www/util.js",
       "pluginId": "cordova-plugin-ionic-webview",
       "clobbers": [
         "Ionic.WebView"
+      ]
+    },
+    {
+      "id": "onesignal-cordova-plugin.OneSignal",
+      "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+      "pluginId": "onesignal-cordova-plugin",
+      "clobbers": [
+        "OneSignal"
       ]
     }
   ],
@@ -277,7 +285,7 @@
     "cordova-plugin-stripe": "1.5.3",
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-androidx-adapter": "1.1.3",
-    "onesignal-cordova-plugin": "3.0.0",
-    "cordova-plugin-ionic-webview": "5.0.0"
+    "cordova-plugin-ionic-webview": "5.0.0",
+    "onesignal-cordova-plugin": "2.8.4"
   }
 }

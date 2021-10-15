@@ -349,7 +349,7 @@ dependencies {
     implementation(project(path: ":CordovaLib"))
     implementation "androidx.annotation:annotation:1.1.0"
     implementation "com.stripe:stripe-android:4.1.2"
-    implementation "com.onesignal:OneSignal:4.4.2"
+    implementation "com.onesignal:OneSignal:3.12.7"
     // SUB-PROJECT DEPENDENCIES END
 }
 

@@ -1,24 +1,11 @@
 {
-    "declarations": {
-        "use_frameworks!": {
-            "declaration": "use_frameworks!",
-            "count": 1
-        }
-    },
-    "sources": {
-        "https://github.com/CocoaPods/Specs.git": {
-            "source": "https://github.com/CocoaPods/Specs.git",
-            "count": 1
-        },
-        "https://github.com/OneSignal/OneSignal-iOS-SDK.git": {
-            "source": "https://github.com/OneSignal/OneSignal-iOS-SDK.git",
-            "count": 1
-        }
-    },
+    "declarations": {},
+    "sources": {},
     "libraries": {
-        "OneSignalXCFramework": {
-            "name": "OneSignalXCFramework",
-            "spec": "3.6.0",
+        "OneSignal": {
+            "name": "OneSignal",
+            "type": "podspec",
+            "spec": "2.12.6",
             "count": 1
         }
     }

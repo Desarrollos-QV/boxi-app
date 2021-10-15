@@ -1,4 +1,5 @@
 {
     "CoreLocation.framework": 2,
-    "WebKit.framework": 1
+    "WebKit.framework": 1,
+    "SystemConfiguration.framework": 1
 }

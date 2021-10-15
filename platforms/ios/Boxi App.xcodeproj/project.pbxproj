@@ -29,7 +29,8 @@
 		9CA929D1463B4F93A137433E /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B722CF34FBA64D6098CB8F64 /* CDVStatusBar.m */; };
 		9597F701B5144D4F8140BBF1 /* CordovaStripe.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4C8A906C8741ECA9465EDF /* CordovaStripe.m */; };
 		035D4C2128A1476CA392D2F9 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1535D83EF56F440B9B36D70D /* Stripe.framework */; };
-		11C39875DAE642F08965DE06 /* OneSignalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD0CA04E7E241008C5780BF /* OneSignalPush.m */; };
+		E8DD46BDC27A4599A598692E /* OneSignalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFC5ED7C7A341C3AE724A13 /* OneSignalPush.m */; };
+		3242071346C04D60814858D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAFD3E13A218461AB5DDE9E5 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,8 +105,9 @@
 		0D4C8A906C8741ECA9465EDF /* CordovaStripe.m */ = {isa = PBXFileReference; name = "CordovaStripe.m"; path = "cordova-plugin-stripe/CordovaStripe.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		8604B62AE2FB41BEA26C2FDC /* CordovaStripe.h */ = {isa = PBXFileReference; name = "CordovaStripe.h"; path = "cordova-plugin-stripe/CordovaStripe.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		1535D83EF56F440B9B36D70D /* Stripe.framework */ = {isa = PBXFileReference; name = "Stripe.framework"; path = "Boxi App/Plugins/cordova-plugin-stripe/Stripe.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		3CD0CA04E7E241008C5780BF /* OneSignalPush.m */ = {isa = PBXFileReference; name = "OneSignalPush.m"; path = "onesignal-cordova-plugin/OneSignalPush.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		0933CE4EF90C455A991B07BE /* OneSignalPush.h */ = {isa = PBXFileReference; name = "OneSignalPush.h"; path = "onesignal-cordova-plugin/OneSignalPush.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		0AFC5ED7C7A341C3AE724A13 /* OneSignalPush.m */ = {isa = PBXFileReference; name = "OneSignalPush.m"; path = "onesignal-cordova-plugin/OneSignalPush.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		6FF32C78D2734F378DC347C1 /* OneSignalPush.h */ = {isa = PBXFileReference; name = "OneSignalPush.h"; path = "onesignal-cordova-plugin/OneSignalPush.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		AAFD3E13A218461AB5DDE9E5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				7EB72D6D7B194AF29799D9C8 /* CoreLocation.framework in Frameworks */,
 				33736A0C5EAE44B9ABD2BF6E /* WebKit.framework in Frameworks */,
 				035D4C2128A1476CA392D2F9 /* Stripe.framework in Frameworks */,
+				3242071346C04D60814858D9 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +193,7 @@
 				0064F896D48349B6939450F8 /* CoreLocation.framework */,
 				3EFF4BF8BB3A429BA9CAA401 /* WebKit.framework */,
 				1535D83EF56F440B9B36D70D /* Stripe.framework */,
+				AAFD3E13A218461AB5DDE9E5 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -240,8 +244,8 @@
 				B19FC7414E394BFBBF9B91DD /* CDVStatusBar.h */,
 				0D4C8A906C8741ECA9465EDF /* CordovaStripe.m */,
 				8604B62AE2FB41BEA26C2FDC /* CordovaStripe.h */,
-				3CD0CA04E7E241008C5780BF /* OneSignalPush.m */,
-				0933CE4EF90C455A991B07BE /* OneSignalPush.h */,
+				0AFC5ED7C7A341C3AE724A13 /* OneSignalPush.m */,
+				6FF32C78D2734F378DC347C1 /* OneSignalPush.h */,
 			);
 			name = Plugins;
 			path = "Boxi App/Plugins";
@@ -382,7 +386,7 @@
 				6BC9C93B9A4B4E5E82B16E9B /* CDVViewController+SplashScreen.m in Sources */,
 				9CA929D1463B4F93A137433E /* CDVStatusBar.m in Sources */,
 				9597F701B5144D4F8140BBF1 /* CordovaStripe.m in Sources */,
-				11C39875DAE642F08965DE06 /* OneSignalPush.m in Sources */,
+				E8DD46BDC27A4599A598692E /* OneSignalPush.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

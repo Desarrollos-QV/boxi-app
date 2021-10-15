@@ -1,27 +1,27 @@
 {
-  "_from": "onesignal-cordova-plugin",
-  "_id": "onesignal-cordova-plugin@3.0.0",
+  "_from": "onesignal-cordova-plugin@2.8.4",
+  "_id": "onesignal-cordova-plugin@2.8.4",
   "_inBundle": false,
-  "_integrity": "sha512-zc2VPSgUYkwVkwn8qCsdburNNIzUFZZvWNkOHk7V4zsum6nS2d7Oa75yC0BLfbkQWRx+fP0jxjJCocM4mQ1VrA==",
+  "_integrity": "sha512-VTbq0rg9r0ddCVnhwIqk5zuP23hlfAJZAmZT2skniCCEvkJ8tbWngcfJufMr4z/mR6t95QBag5EgbHZFtGJ6SQ==",
   "_location": "/onesignal-cordova-plugin",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "onesignal-cordova-plugin",
+    "raw": "onesignal-cordova-plugin@2.8.4",
     "name": "onesignal-cordova-plugin",
     "escapedName": "onesignal-cordova-plugin",
-    "rawSpec": "",
+    "rawSpec": "2.8.4",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "2.8.4"
   },
   "_requiredBy": [
     "#DEV:/",
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/onesignal-cordova-plugin/-/onesignal-cordova-plugin-3.0.0.tgz",
-  "_shasum": "ea2b3f8b9be7f48f37fba48d19ff6858e55673fe",
-  "_spec": "onesignal-cordova-plugin",
+  "_resolved": "https://registry.npmjs.org/onesignal-cordova-plugin/-/onesignal-cordova-plugin-2.8.4.tgz",
+  "_shasum": "da46021e6cea449d301e9f6478a5c6da809c103f",
+  "_spec": "onesignal-cordova-plugin@2.8.4",
   "_where": "C:\\ionic\\boxiapp\\usuarios",
   "author": {
     "name": "Josh Kasten, Brad Hesse, Rodrigo Gomez-Palacio"
@@ -35,6 +35,7 @@
     "platforms": [
       "android",
       "ios",
+      "windows",
       "amazon-fireos"
     ]
   },
@@ -80,17 +81,16 @@
     "cordova-amazon-fireos"
   ],
   "license": "MIT",
-  "main": "www/OneSignalPlugin.js",
   "name": "onesignal-cordova-plugin",
   "platforms": [
     "android",
     "ios",
+    "windows",
     "amazon-fireos"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/onesignal/OneSignal-Cordova-SDK.git"
   },
-  "typings": "types/index.d.ts",
-  "version": "3.0.0"
+  "version": "2.8.4"
 }

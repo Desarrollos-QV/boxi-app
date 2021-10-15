@@ -35,10 +35,10 @@
     "cordova-plugin-androidx-adapter": {
       "PACKAGE_NAME": "com.boxi.app"
     },
-    "onesignal-cordova-plugin": {
+    "cordova-plugin-ionic-webview": {
       "PACKAGE_NAME": "com.boxi.app"
     },
-    "cordova-plugin-ionic-webview": {
+    "onesignal-cordova-plugin": {
       "PACKAGE_NAME": "com.boxi.app"
     }
   },

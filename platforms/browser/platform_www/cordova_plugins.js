@@ -65,39 +65,19 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/onesignal-cordova-plugin/www/OneSignalPlugin.js",
-        "id": "onesignal-cordova-plugin.OneSignalPlugin",
-        "pluginId": "onesignal-cordova-plugin",
-        "clobbers": [
-            "OneSignal"
-        ]
-    },
-    {
-        "file": "plugins/onesignal-cordova-plugin/www/NotificationReceived.js",
-        "id": "onesignal-cordova-plugin.NotificationReceived",
-        "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-        "file": "plugins/onesignal-cordova-plugin/www/NotificationOpened.js",
-        "id": "onesignal-cordova-plugin.NotificationOpened",
-        "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-        "file": "plugins/onesignal-cordova-plugin/www/InAppMessage.js",
-        "id": "onesignal-cordova-plugin.InAppMessage",
-        "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-        "file": "plugins/onesignal-cordova-plugin/www/Subscription.js",
-        "id": "onesignal-cordova-plugin.Subscription",
-        "pluginId": "onesignal-cordova-plugin"
-    },
-    {
         "file": "plugins/cordova-plugin-ionic-webview/src/www/util.js",
         "id": "cordova-plugin-ionic-webview.IonicWebView",
         "pluginId": "cordova-plugin-ionic-webview",
         "clobbers": [
             "Ionic.WebView"
+        ]
+    },
+    {
+        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+        "id": "onesignal-cordova-plugin.OneSignal",
+        "pluginId": "onesignal-cordova-plugin",
+        "clobbers": [
+            "OneSignal"
         ]
     }
 ];
@@ -115,8 +95,8 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-androidx": "3.0.0",
     "cordova-plugin-androidx-adapter": "1.1.3",
-    "onesignal-cordova-plugin": "3.0.0",
-    "cordova-plugin-ionic-webview": "5.0.0"
+    "cordova-plugin-ionic-webview": "5.0.0",
+    "onesignal-cordova-plugin": "2.8.4"
 }
 // BOTTOM OF METADATA
 });

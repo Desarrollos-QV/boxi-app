@@ -17,6 +17,7 @@ export class ServiceService {
   geoLatitude = null;
   geoLongitude=null;
 
+  ModalLangStat:boolean = false;
   constructor(
     private http: HttpClient,
     private geolocation: Geolocation,
@@ -46,22 +47,24 @@ export class ServiceService {
   
   async SetLenguage()
   {
-    const modal = await this.modalController.create({
-      cssClass: "my-custom-lenguage-class",
-      animated: true,
-      swipeToClose:true,
-      mode:'ios',
-      component: SetLenguagePage,
-      
-    });
+    if (this.ModalLangStat == false) {
+      this.ModalLangStat = true;
+      const modal = await this.modalController.create({
+        cssClass: "my-custom-lenguage-class",
+        animated: true,
+        swipeToClose:true,
+        mode:'ios',
+        component: SetLenguagePage,
+        
+      });
 
-    modal.onDidDismiss().then(data=>{
-     console.log("cambio de idioma ha: "+ localStorage.getItem('lenguage'));
-     this.events.publish('change_lang');
+      modal.onDidDismiss().then(data=>{
+        this.ModalLangStat = false;
+        this.events.publish('change_lang');
+      });
 
-    });
-    
-    return await modal.present();
+      return await modal.present();
+    }
   }
 
   homepage(city_id)

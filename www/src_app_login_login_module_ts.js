@@ -20319,7 +20319,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let LoginPage = class LoginPage {
-    constructor(route, server, toastController, nav, loadingController, events, platform, menu) {
+    constructor(route, server, toastController, nav, loadingController, events, platform, menu, actionSheetController) {
         this.route = route;
         this.server = server;
         this.toastController = toastController;
@@ -20328,12 +20328,14 @@ let LoginPage = class LoginPage {
         this.events = events;
         this.platform = platform;
         this.menu = menu;
+        this.actionSheetController = actionSheetController;
         this.user_id = null;
         this.verifyCode = false;
         this.isKeyboardHide = true;
         this.time_verify = false;
         this.resend_stat = false;
-        this.img_prefjix = "assets/es.png";
+        this.pic_prefix = "assets/es.png";
+        this.text_prefix = "+52";
         this.prefjix = "+521";
     }
     ngOnInit() {
@@ -20346,11 +20348,13 @@ let LoginPage = class LoginPage {
             let lang = localStorage.getItem('lenguage');
             this.server.globalize(localStorage.getItem('lenguage'));
             if (lang == 'es') {
-                this.img_prefjix = "assets/es.png";
+                this.pic_prefix = "assets/es.png";
+                this.text_prefix = "Selecciona Tu Prefijo";
                 this.prefjix = "+521";
             }
             else if (lang == 'en') {
-                this.img_prefjix = "assets/en.png";
+                this.pic_prefix = "assets/en.png";
+                this.text_prefix = "Select Your Prefix";
                 this.prefjix = "+1";
             }
         }
@@ -20413,6 +20417,33 @@ let LoginPage = class LoginPage {
             toast.present();
         });
     }
+    changePrefix() {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
+            const actionSheet = yield this.actionSheetController.create({
+                header: this.text_prefix,
+                cssClass: 'my-custom-class',
+                buttons: [
+                    {
+                        text: 'México',
+                        icon: 'assets/prefix/mexico.svg',
+                        handler: () => {
+                            this.pic_prefix = "assets/es.png";
+                            this.prefjix = "+521";
+                        }
+                    },
+                    {
+                        text: 'Usa',
+                        icon: 'assets/prefix/usa.svg',
+                        handler: () => {
+                            this.pic_prefix = "assets/en.png";
+                            this.prefjix = "+1";
+                        }
+                    }
+                ]
+            });
+            yield actionSheet.present();
+        });
+    }
     goBck() {
         this.nav.navigateRoot('welcome');
     }
@@ -20425,7 +20456,8 @@ LoginPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.LoadingController },
     { type: _service_events_service__WEBPACK_IMPORTED_MODULE_3__.EventsService },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.Platform },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.MenuController }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.MenuController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.ActionSheetController }
 ];
 LoginPage.propDecorators = {
     phone: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_8__.ViewChild, args: ["phone", { static: false },] }]
@@ -20468,7 +20500,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header no-border class=\"ion-no-border\">\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-back-button text=\"\" icon=\"chevron-back-outline\"></ion-back-button>\n      </ion-buttons>\n      <ion-title>\n      </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content fullscreen>\n\n<!--Send SMS for otp-->\n<div class=\"wrap-content\">\n  <div>\n    <div class=\"form\">\n        <ion-list lines=\"none\">\n            <h1>{{'phone_number' | translate}}</h1>\n            <p class=\"d-flex ion-text-left\" style=\"font-weight: 500;font-size: 14px;\">\n              {{'code_sms' | translate}}\n            </p>\n\n            <ion-item lines=\"none\">\n              <div class=\"item_inner d-flex\">\n                <h3 class=\"d-flex\">\n                  <img src=\"{{img_prefjix}}\" alt=\"mex_flag\" style=\"max-width: 30%;\">\n                  &nbsp;&nbsp;<ion-label>{{prefjix}}</ion-label>\n                </h3>\n                <ion-input mode=\"md\" #phone pattern=\"[0-9]{3}[0-9]{3}[0-9]{4}\" maxlength=\"10\" clearInput minlength=\"10\" name=\"phone\" type=\"tel\" placeholder=\"477 123 4567\"></ion-input>\n              </div>\n            </ion-item>\n\n        </ion-list>\n    </div>\n\n    <div style=\"text-align: center;\">\n      <div id=\"recaptcha-container\" style=\"display: inline-block;\"></div>\n    </div>\n  </div>\n</div>\n\n<ion-button class=\"btn_next\" *ngIf=\"isKeyboardHide\" (click)=\"login()\" color=\"dark\" shape=\"round\" style=\"--border-radius:25px;\">\n  {{'next' | translate}}\n  <ion-icon slot=\"end\" name=\"chevron-forward-outline\"></ion-icon>\n</ion-button>\n<!--Send SMS for otp-->\n</ion-content>\n\n<ion-footer style=\"padding: 15px;text-align: center;\" *ngIf=\"isKeyboardHide\">\n  <ion-label color=\"medium\"  mode=\"ios\" routerLink=\"/signup\" routerDirection=\"forward\">{{'no_account' | translate}} <b>{{'sign_up' | translate}}</b></ion-label> \n</ion-footer>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header no-border class=\"ion-no-border\">\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-back-button text=\"\" icon=\"chevron-back-outline\"></ion-back-button>\n      </ion-buttons>\n      <ion-title>\n      </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content fullscreen>\n\n<!--Send SMS for otp-->\n<div class=\"wrap-content\">\n  <div>\n    <div class=\"form\">\n        <ion-list lines=\"none\">\n            <h1>{{'phone_number' | translate}}</h1>\n            <p class=\"d-flex ion-text-left\" style=\"font-weight: 500;font-size: 14px;\">\n              {{'code_sms' | translate}}\n            </p>\n\n            <ion-item lines=\"none\">\n              <div class=\"item_inner d-flex\">\n                <h3 class=\"d-flex\" (click)=\"changePrefix()\">\n                  <img src=\"{{pic_prefix}}\" alt=\"mex_flag\" style=\"max-width: 30%;\">\n                  &nbsp;&nbsp;<ion-label>{{prefjix}}</ion-label>\n                </h3>\n                <ion-input mode=\"md\" #phone pattern=\"[0-9]{3}[0-9]{3}[0-9]{4}\" maxlength=\"10\" clearInput minlength=\"10\" name=\"phone\" type=\"tel\" placeholder=\"477 123 4567\"></ion-input>\n              </div>\n            </ion-item>\n\n        </ion-list>\n    </div>\n\n    <div style=\"text-align: center;\">\n      <div id=\"recaptcha-container\" style=\"display: inline-block;\"></div>\n    </div>\n  </div>\n</div>\n\n<ion-button class=\"btn_next\" *ngIf=\"isKeyboardHide\" (click)=\"login()\" color=\"dark\" shape=\"round\" style=\"--border-radius:25px;\">\n  {{'next' | translate}}\n  <ion-icon slot=\"end\" name=\"chevron-forward-outline\"></ion-icon>\n</ion-button>\n<!--Send SMS for otp-->\n</ion-content>\n\n<ion-footer style=\"padding: 15px;text-align: center;\" *ngIf=\"isKeyboardHide\">\n  <ion-label color=\"medium\"  mode=\"ios\" routerLink=\"/signup\" routerDirection=\"forward\">{{'no_account' | translate}} <b>{{'sign_up' | translate}}</b></ion-label> \n</ion-footer>");
 
 /***/ })
 

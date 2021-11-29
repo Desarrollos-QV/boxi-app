@@ -1107,6 +1107,7 @@ let ServiceService = class ServiceService {
         this.url = "https://boxi.grupoorus.mx/api/";
         this.geoLatitude = null;
         this.geoLongitude = null;
+        this.ModalLangStat = false;
     }
     get windowRef() {
         return window;
@@ -1123,18 +1124,21 @@ let ServiceService = class ServiceService {
     }
     SetLenguage() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
-            const modal = yield this.modalController.create({
-                cssClass: "my-custom-lenguage-class",
-                animated: true,
-                swipeToClose: true,
-                mode: 'ios',
-                component: _set_lenguage_set_lenguage_page__WEBPACK_IMPORTED_MODULE_2__.SetLenguagePage,
-            });
-            modal.onDidDismiss().then(data => {
-                console.log("cambio de idioma ha: " + localStorage.getItem('lenguage'));
-                this.events.publish('change_lang');
-            });
-            return yield modal.present();
+            if (this.ModalLangStat == false) {
+                this.ModalLangStat = true;
+                const modal = yield this.modalController.create({
+                    cssClass: "my-custom-lenguage-class",
+                    animated: true,
+                    swipeToClose: true,
+                    mode: 'ios',
+                    component: _set_lenguage_set_lenguage_page__WEBPACK_IMPORTED_MODULE_2__.SetLenguagePage,
+                });
+                modal.onDidDismiss().then(data => {
+                    this.ModalLangStat = false;
+                    this.events.publish('change_lang');
+                });
+                return yield modal.present();
+            }
         });
     }
     homepage(city_id) {

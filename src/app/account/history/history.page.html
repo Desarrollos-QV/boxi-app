@@ -62,7 +62,7 @@
           </ion-row>
           <br>
           <ion-button *ngIf="order.hasRating == 0" fill="outline" size="small" color="primary" (click)="viewRateTrip(order)">{{'qualify' | translate}}</ion-button>
-          <ion-button *ngIf="order.st == 0" fill="outline" size="small" style="float: right" (click)="cancelOrder(order.id)">{{'cancel_order' | translate}}</ion-button>
+          <ion-button *ngIf="order.st == 0" fill="outline" size="small" style="float: right">{{'cancel_order' | translate}}</ion-button>
         </ion-card-header>
       </ion-card>
     </ion-list>

@@ -23,8 +23,8 @@
 
             <ion-item lines="none">
               <div class="item_inner d-flex">
-                <h3 class="d-flex">
-                  <img src="{{img_prefjix}}" alt="mex_flag" style="max-width: 30%;">
+                <h3 class="d-flex" (click)="changePrefix()">
+                  <img src="{{pic_prefix}}" alt="mex_flag" style="max-width: 30%;">
                   &nbsp;&nbsp;<ion-label>{{prefjix}}</ion-label>
                 </h3>
                 <ion-input mode="md" #phone pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" clearInput minlength="10" name="phone" type="tel" placeholder="477 123 4567"></ion-input>

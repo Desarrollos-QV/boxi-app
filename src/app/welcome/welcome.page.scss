@@ -2,6 +2,24 @@ ion-content.ion-padding{
     --background: url(../../assets/bg_wel.jpeg) 0 0/100% 100% no-repeat;
 }
 
+.change_lng {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+    
+
+    button {
+        background: transparent;
+        border: 1px solid #e1e1e1;
+        color: #fff;
+        padding: 8px 12px;
+        text-transform: capitalize;
+        font-size: 12px;
+        border-radius: 12px;
+    }
+}
+
 .banner {
     position: absolute;
     width: 50%;

@@ -36,6 +36,7 @@ export class WelcomePage implements OnInit {
   
   // Control de errores
   Error: String;  
+
   constructor(
     public server : ServiceService,
     public loadingController: LoadingController,
@@ -60,7 +61,7 @@ export class WelcomePage implements OnInit {
 
   ionViewWillEnter(){
     if (!localStorage.getItem('lenguage') || localStorage.getItem('lenguage') == 'null') {
-        this.server.SetLenguage();
+      this.server.SetLenguage();
     }else {
       this.server.globalize(localStorage.getItem('lenguage'));
     }
@@ -184,6 +185,16 @@ export class WelcomePage implements OnInit {
 
     //   loading.dismiss();
     // });
+  }
+
+  /**
+   * 
+   * Cambio de idioma 
+   *  
+   */
+  ChangeLng()
+  {
+    this.server.SetLenguage();
   }
   
   async presentToast(txt,color) {

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationExtras } from '@angular/router';
 import { ServiceService } from '.././service/service.service';
 import { EventsService } from '.././service/events.service';
-import { ToastController,NavController,Platform,LoadingController,IonInput, MenuController } from '@ionic/angular';
+import { ToastController,NavController,Platform,LoadingController,IonInput, MenuController, ActionSheetController } from '@ionic/angular';
 import firebase from '.././service/fbConfig';
 
 @Component({
@@ -25,8 +25,11 @@ export class LoginPage implements OnInit {
 
   stateVerify;
   windowsRef:any;
-  img_prefjix: String = "assets/es.png";
+  
+  pic_prefix: any = "assets/es.png";
+  text_prefix:any = "+52";
   prefjix: any = "+521";
+
   recaptchaVerifier: firebase.auth.RecaptchaVerifier;
 
   phone_view: String;
@@ -39,6 +42,7 @@ export class LoginPage implements OnInit {
     public events: EventsService,
     public platform: Platform,
     public menu: MenuController,
+    public actionSheetController: ActionSheetController
   ){
     
   }
@@ -55,10 +59,12 @@ export class LoginPage implements OnInit {
       let lang = localStorage.getItem('lenguage');
       this.server.globalize(localStorage.getItem('lenguage'));
       if (lang == 'es') {
-        this.img_prefjix = "assets/es.png";
+        this.pic_prefix = "assets/es.png";
+        this.text_prefix = "Selecciona Tu Prefijo";
         this.prefjix = "+521";
       }else if (lang == 'en') {
-        this.img_prefjix = "assets/en.png";
+        this.pic_prefix = "assets/en.png";
+        this.text_prefix = "Select Your Prefix";
         this.prefjix = "+1";
       }
     }else {
@@ -116,8 +122,6 @@ export class LoginPage implements OnInit {
     this.verifyCode = false;
   }
 
-
-
   async presentToast(txt,color) {
     const toast = await this.toastController.create({
       message: txt,
@@ -129,6 +133,32 @@ export class LoginPage implements OnInit {
     toast.present();
   }
 
+  async changePrefix() {
+    const actionSheet = await this.actionSheetController.create({
+      header: this.text_prefix,
+      cssClass: 'my-custom-class',
+      buttons: [
+        {
+          text: 'México',
+          icon: 'assets/prefix/mexico.svg',
+          handler: () => {
+            this.pic_prefix = "assets/es.png"; 
+            this.prefjix = "+521";
+          }
+        },
+        {
+          text: 'Usa',
+          icon: 'assets/prefix/usa.svg',
+          handler: () => {
+            this.pic_prefix = "assets/en.png"; 
+            this.prefjix = "+1";
+          }
+        }
+      ]
+    });
+    await actionSheet.present();
+ 
+  }
 
   goBck()
   {

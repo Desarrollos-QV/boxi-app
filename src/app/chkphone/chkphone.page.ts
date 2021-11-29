@@ -19,6 +19,7 @@ export class ChkphonePage implements OnInit {
   confirmationResult: any;
   phone_view: any;
   user_id: any = 'null';
+  resend_stat: any;
   constructor(
     public server : ServiceService,
     public toastController: ToastController,

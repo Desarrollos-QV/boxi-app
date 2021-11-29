@@ -7,6 +7,5 @@
   "description": "Apicación de transporte y envios.",
   "author": "Desarrollos QV",
   "icons": [],
-  "start_url": "index.html",
-  "theme_color": "#FFFFFF"
+  "start_url": "https://localhost:8100"
 }

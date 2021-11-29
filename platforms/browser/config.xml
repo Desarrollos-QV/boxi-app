@@ -3,7 +3,7 @@
     <name>Boxi App</name>
     <description>Apicación de transporte y envios.</description>
     <author email="soporte.desarrollosqv@gmail.com" href="https://desarrollos-qv.com/">Desarrollos QV</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="https://localhost:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

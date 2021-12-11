@@ -58,6 +58,10 @@
             {
               "xml": "<feature name=\"OneSignalPush\"><param name=\"android-package\" value=\"com.plugin.gcm.OneSignalPush\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"FirebaseAuthentication\"><param name=\"android-package\" value=\"by.chemerisuk.cordova.firebase.FirebaseAuthenticationPlugin\" /><param name=\"onload\" value=\"false\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -148,6 +152,18 @@
             {
               "xml": "<feature name=\"IonicWebView\"><param name=\"android-package\" value=\"com.ionicframework.cordova.webview.IonicWebView\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<preference name=\"AndroidXEnabled\" value=\"true\" />",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"GradlePluginGoogleServicesEnabled\" value=\"true\" />",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"GradlePluginGoogleServicesVersion\" value=\"4.3.8\" />",
+              "count": 1
             }
           ]
         }
@@ -190,6 +206,13 @@
       "PACKAGE_NAME": "com.boxi.app"
     },
     "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-support-android-plugin": {
+      "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-plugin-firebase-authentication": {
+      "ANDROID_FIREBASE_AUTH_VERSION": "21.0.+",
       "PACKAGE_NAME": "com.boxi.app"
     }
   },
@@ -272,6 +295,14 @@
       "clobbers": [
         "OneSignal"
       ]
+    },
+    {
+      "id": "cordova-plugin-firebase-authentication.FirebaseAuthentication",
+      "file": "plugins/cordova-plugin-firebase-authentication/www/FirebaseAuthentication.js",
+      "pluginId": "cordova-plugin-firebase-authentication",
+      "merges": [
+        "cordova.plugins.firebase.auth"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -286,6 +317,8 @@
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-androidx-adapter": "1.1.3",
     "cordova-plugin-ionic-webview": "5.0.0",
-    "onesignal-cordova-plugin": "2.8.4"
+    "onesignal-cordova-plugin": "2.8.4",
+    "cordova-support-android-plugin": "1.0.2",
+    "cordova-plugin-firebase-authentication": "5.1.0"
   }
 }

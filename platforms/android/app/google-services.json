@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "4044870340",
+    "firebase_url": "https://boxi-driver-b1102-default-rtdb.firebaseio.com",
+    "project_id": "boxi-driver-b1102",
+    "storage_bucket": "boxi-driver-b1102.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4044870340:android:ce213dfd586a652f146f91",
+        "android_client_info": {
+          "package_name": "boxi.grupoorus.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4044870340-l2u2p1985r06qepd24c9h18hms4b8kma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeuVnuvJT9oGTqRgrW2T5WvgnkvOkcIeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "4044870340-l2u2p1985r06qepd24c9h18hms4b8kma.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "4044870340-bgge7v1btec8obl88i4v482eaquvdbmm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.boxi.2app",
+                "app_store_id": "1594017039"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4044870340:android:c470af9f7be089d2146f91",
+        "android_client_info": {
+          "package_name": "com.boxi.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4044870340-bsbrgegq1o0a1k2o030pdakvutkh10k8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.boxi.app",
+            "certificate_hash": "121ba7d7112226f077b7843a0bfe42222edf30b8"
+          }
+        },
+        {
+          "client_id": "4044870340-l2u2p1985r06qepd24c9h18hms4b8kma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeuVnuvJT9oGTqRgrW2T5WvgnkvOkcIeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "4044870340-l2u2p1985r06qepd24c9h18hms4b8kma.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "4044870340-bgge7v1btec8obl88i4v482eaquvdbmm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.boxi.2app",
+                "app_store_id": "1594017039"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

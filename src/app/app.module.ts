@@ -21,6 +21,7 @@ import { Facebook } from '@ionic-native/facebook/ngx';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
 
 
 // ModalBox
@@ -63,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     Facebook,
     Stripe,
     OneSignal,
+    FirebaseAuthentication,
     { provide: APP_CONFIG, useValue: BaseAppConfig },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

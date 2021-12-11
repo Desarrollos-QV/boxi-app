@@ -55,6 +55,10 @@
     <feature name="OneSignalPush">
         <param name="ios-package" value="OneSignalPush" />
     </feature>
+    <feature name="FirebaseAuthentication">
+        <param name="ios-package" value="FirebaseAuthenticationPlugin" />
+        <param name="onload" value="false" />
+    </feature>
     <name>Boxi App</name>
     <description>Apicación de transporte y envios.</description>
     <author email="soporte.desarrollosqv@gmail.com" href="https://desarrollos-qv.com/">Desarrollos QV</author>

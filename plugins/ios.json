@@ -44,6 +44,10 @@
     },
     "onesignal-cordova-plugin": {
       "PACKAGE_NAME": "com.boxi.app"
+    },
+    "cordova-plugin-firebase-authentication": {
+      "IOS_FIREBASE_POD_VERSION": "~> 8.8.0",
+      "PACKAGE_NAME": "com.boxi.app"
     }
   },
   "dependent_plugins": {

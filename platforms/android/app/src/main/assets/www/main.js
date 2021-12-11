@@ -442,14 +442,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "HttpLoaderFactory": () => (/* binding */ HttpLoaderFactory),
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! tslib */ 4762);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ngx-translate/core */ 9790);
-/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ngx-translate/http-loader */ 2472);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/common/http */ 1841);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/platform-browser */ 9075);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/router */ 9895);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @ionic/angular */ 476);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! tslib */ 4762);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @ngx-translate/core */ 9790);
+/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ngx-translate/http-loader */ 2472);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/common/http */ 1841);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/platform-browser */ 9075);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic/angular */ 476);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.component */ 5041);
 /* harmony import */ var _app_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.config */ 9670);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app-routing.module */ 158);
@@ -458,13 +458,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_stripe_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/stripe/ngx */ 2551);
 /* harmony import */ var _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/onesignal/ngx */ 1779);
 /* harmony import */ var _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/facebook/ngx */ 222);
-/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/fire/auth */ 9743);
-/* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/fire */ 57);
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/fire/auth */ 9743);
+/* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/fire */ 57);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../environments/environment */ 2340);
-/* harmony import */ var _welcome_endsignup_endsignup_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./welcome/endsignup/endsignup.module */ 7205);
-/* harmony import */ var _set_lenguage_set_lenguage_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./set-lenguage/set-lenguage.module */ 1824);
-/* harmony import */ var _form_card_form_card_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./form-card/form-card.module */ 1509);
-/* harmony import */ var _done_comm_rate_trip_rate_trip_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./done-comm/rate-trip/rate-trip.module */ 6506);
+/* harmony import */ var _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/firebase-authentication/ngx */ 569);
+/* harmony import */ var _welcome_endsignup_endsignup_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./welcome/endsignup/endsignup.module */ 7205);
+/* harmony import */ var _set_lenguage_set_lenguage_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./set-lenguage/set-lenguage.module */ 1824);
+/* harmony import */ var _form_card_form_card_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./form-card/form-card.module */ 1509);
+/* harmony import */ var _done_comm_rate_trip_rate_trip_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./done-comm/rate-trip/rate-trip.module */ 6506);
 
 
 
@@ -486,39 +487,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 // ModalBox
 
 
 
 
 function HttpLoaderFactory(http) {
-    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_13__.TranslateHttpLoader(http);
+    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_14__.TranslateHttpLoader(http);
 }
 let AppModule = class AppModule {
 };
-AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_14__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_15__.NgModule)({
+AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_15__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_16__.NgModule)({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent],
         entryComponents: [],
         imports: [
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_16__.BrowserModule,
-            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__.TranslateModule.forRoot({
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_17__.BrowserModule,
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_18__.TranslateModule.forRoot({
                 loader: {
-                    provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__.TranslateLoader,
+                    provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_18__.TranslateLoader,
                     useFactory: HttpLoaderFactory,
-                    deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_18__.HttpClient]
+                    deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_19__.HttpClient]
                 }
             }),
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_19__.IonicModule.forRoot(),
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_20__.IonicModule.forRoot(),
             _app_routing_module__WEBPACK_IMPORTED_MODULE_2__.AppRoutingModule,
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_18__.HttpClientModule,
-            _angular_fire__WEBPACK_IMPORTED_MODULE_20__.AngularFireModule.initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_8__.environment.firebaseConfig),
-            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_21__.AngularFireAuthModule,
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_19__.HttpClientModule,
+            _angular_fire__WEBPACK_IMPORTED_MODULE_21__.AngularFireModule.initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_8__.environment.firebaseConfig),
+            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_22__.AngularFireAuthModule,
             // ModalBox
-            _welcome_endsignup_endsignup_module__WEBPACK_IMPORTED_MODULE_9__.EndsignupPageModule,
-            _set_lenguage_set_lenguage_module__WEBPACK_IMPORTED_MODULE_10__.SetLenguagePageModule,
-            _form_card_form_card_module__WEBPACK_IMPORTED_MODULE_11__.FormCardPageModule,
-            _done_comm_rate_trip_rate_trip_module__WEBPACK_IMPORTED_MODULE_12__.RateTripPageModule
+            _welcome_endsignup_endsignup_module__WEBPACK_IMPORTED_MODULE_10__.EndsignupPageModule,
+            _set_lenguage_set_lenguage_module__WEBPACK_IMPORTED_MODULE_11__.SetLenguagePageModule,
+            _form_card_form_card_module__WEBPACK_IMPORTED_MODULE_12__.FormCardPageModule,
+            _done_comm_rate_trip_rate_trip_module__WEBPACK_IMPORTED_MODULE_13__.RateTripPageModule
         ],
         providers: [
             _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_3__.Geolocation,
@@ -526,8 +528,9 @@ AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_14__.__decorate)([
             _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_7__.Facebook,
             _ionic_native_stripe_ngx__WEBPACK_IMPORTED_MODULE_5__.Stripe,
             _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_6__.OneSignal,
+            _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_9__.FirebaseAuthentication,
             { provide: _app_config__WEBPACK_IMPORTED_MODULE_1__.APP_CONFIG, useValue: _app_config__WEBPACK_IMPORTED_MODULE_1__.BaseAppConfig },
-            { provide: _angular_router__WEBPACK_IMPORTED_MODULE_22__.RouteReuseStrategy, useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_19__.IonicRouteStrategy }
+            { provide: _angular_router__WEBPACK_IMPORTED_MODULE_23__.RouteReuseStrategy, useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_20__.IonicRouteStrategy }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent],
     })
@@ -1107,6 +1110,7 @@ let ServiceService = class ServiceService {
         this.url = "https://boxi.grupoorus.mx/api/";
         this.geoLatitude = null;
         this.geoLongitude = null;
+        this.ModalLangStat = false;
     }
     get windowRef() {
         return window;
@@ -1123,18 +1127,21 @@ let ServiceService = class ServiceService {
     }
     SetLenguage() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
-            const modal = yield this.modalController.create({
-                cssClass: "my-custom-lenguage-class",
-                animated: true,
-                swipeToClose: true,
-                mode: 'ios',
-                component: _set_lenguage_set_lenguage_page__WEBPACK_IMPORTED_MODULE_2__.SetLenguagePage,
-            });
-            modal.onDidDismiss().then(data => {
-                console.log("cambio de idioma ha: " + localStorage.getItem('lenguage'));
-                this.events.publish('change_lang');
-            });
-            return yield modal.present();
+            if (this.ModalLangStat == false) {
+                this.ModalLangStat = true;
+                const modal = yield this.modalController.create({
+                    cssClass: "my-custom-lenguage-class",
+                    animated: true,
+                    swipeToClose: true,
+                    mode: 'ios',
+                    component: _set_lenguage_set_lenguage_page__WEBPACK_IMPORTED_MODULE_2__.SetLenguagePage,
+                });
+                modal.onDidDismiss().then(data => {
+                    this.ModalLangStat = false;
+                    this.events.publish('change_lang');
+                });
+                return yield modal.present();
+            }
         });
     }
     homepage(city_id) {

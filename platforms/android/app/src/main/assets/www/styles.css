@@ -1482,7 +1482,7 @@ sub {
   border-top-right-radius: 25px;
 }
 .my-custom-lenguage-class .modal-wrapper {
-  width: 100%;
+  width: 60%;
   height: 35%;
   top: 65%;
   position: absolute;
@@ -1618,6 +1618,10 @@ sub {
   .my-custom-filters-class .modal-wrapper {
     width: 75%;
   }
+
+  .my-custom-lenguage-class .modal-wrapper {
+    width: 75%;
+  }
 }
 @media screen and (max-width: 768px) {
   .wrap-content {
@@ -1625,6 +1629,10 @@ sub {
   }
 
   .my-custom-filters-class .modal-wrapper {
+    width: 100%;
+  }
+
+  .my-custom-lenguage-class .modal-wrapper {
     width: 100%;
   }
 }

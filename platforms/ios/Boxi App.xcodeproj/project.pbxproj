@@ -31,6 +31,7 @@
 		035D4C2128A1476CA392D2F9 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1535D83EF56F440B9B36D70D /* Stripe.framework */; };
 		E8DD46BDC27A4599A598692E /* OneSignalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFC5ED7C7A341C3AE724A13 /* OneSignalPush.m */; };
 		3242071346C04D60814858D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAFD3E13A218461AB5DDE9E5 /* SystemConfiguration.framework */; };
+		5DC8E565F28C4C87BD166CBA /* FirebaseAuthenticationPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B660D2D38E444D2A1F8572F /* FirebaseAuthenticationPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,8 @@
 		0AFC5ED7C7A341C3AE724A13 /* OneSignalPush.m */ = {isa = PBXFileReference; name = "OneSignalPush.m"; path = "onesignal-cordova-plugin/OneSignalPush.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		6FF32C78D2734F378DC347C1 /* OneSignalPush.h */ = {isa = PBXFileReference; name = "OneSignalPush.h"; path = "onesignal-cordova-plugin/OneSignalPush.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		AAFD3E13A218461AB5DDE9E5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		1B660D2D38E444D2A1F8572F /* FirebaseAuthenticationPlugin.m */ = {isa = PBXFileReference; name = "FirebaseAuthenticationPlugin.m"; path = "cordova-plugin-firebase-authentication/FirebaseAuthenticationPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		11C8F0775277492FA44251D8 /* FirebaseAuthenticationPlugin.h */ = {isa = PBXFileReference; name = "FirebaseAuthenticationPlugin.h"; path = "cordova-plugin-firebase-authentication/FirebaseAuthenticationPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +249,8 @@
 				8604B62AE2FB41BEA26C2FDC /* CordovaStripe.h */,
 				0AFC5ED7C7A341C3AE724A13 /* OneSignalPush.m */,
 				6FF32C78D2734F378DC347C1 /* OneSignalPush.h */,
+				1B660D2D38E444D2A1F8572F /* FirebaseAuthenticationPlugin.m */,
+				11C8F0775277492FA44251D8 /* FirebaseAuthenticationPlugin.h */,
 			);
 			name = Plugins;
 			path = "Boxi App/Plugins";
@@ -387,6 +392,7 @@
 				9CA929D1463B4F93A137433E /* CDVStatusBar.m in Sources */,
 				9597F701B5144D4F8140BBF1 /* CordovaStripe.m in Sources */,
 				E8DD46BDC27A4599A598692E /* OneSignalPush.m in Sources */,
+				5DC8E565F28C4C87BD166CBA /* FirebaseAuthenticationPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

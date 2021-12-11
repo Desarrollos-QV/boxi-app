@@ -79,6 +79,14 @@ module.exports = [
         "clobbers": [
             "OneSignal"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-firebase-authentication/www/FirebaseAuthentication.js",
+        "id": "cordova-plugin-firebase-authentication.FirebaseAuthentication",
+        "pluginId": "cordova-plugin-firebase-authentication",
+        "merges": [
+            "cordova.plugins.firebase.auth"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -96,7 +104,8 @@ module.exports.metadata =
     "cordova-plugin-androidx": "3.0.0",
     "cordova-plugin-androidx-adapter": "1.1.3",
     "cordova-plugin-ionic-webview": "5.0.0",
-    "onesignal-cordova-plugin": "2.8.4"
+    "onesignal-cordova-plugin": "2.8.4",
+    "cordova-plugin-firebase-authentication": "5.1.0"
 }
 // BOTTOM OF METADATA
 });

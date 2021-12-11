@@ -20300,15 +20300,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "LoginPage": () => (/* binding */ LoginPage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 4762);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 4762);
 /* harmony import */ var _raw_loader_login_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./login.page.html */ 6770);
 /* harmony import */ var _login_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.page.scss */ 1339);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ 9895);
 /* harmony import */ var _service_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! .././service/service.service */ 6794);
 /* harmony import */ var _service_events_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! .././service/events.service */ 4665);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ 476);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ 476);
 /* harmony import */ var _service_fbConfig__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! .././service/fbConfig */ 3648);
+/* harmony import */ var _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/firebase-authentication/ngx */ 569);
+
 
 
 
@@ -20319,7 +20321,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let LoginPage = class LoginPage {
-    constructor(route, server, toastController, nav, loadingController, events, platform, menu) {
+    constructor(route, server, toastController, nav, loadingController, events, platform, menu, actionSheetController, firebaseAuthentication) {
         this.route = route;
         this.server = server;
         this.toastController = toastController;
@@ -20328,12 +20330,15 @@ let LoginPage = class LoginPage {
         this.events = events;
         this.platform = platform;
         this.menu = menu;
+        this.actionSheetController = actionSheetController;
+        this.firebaseAuthentication = firebaseAuthentication;
         this.user_id = null;
         this.verifyCode = false;
         this.isKeyboardHide = true;
         this.time_verify = false;
         this.resend_stat = false;
-        this.img_prefjix = "assets/es.png";
+        this.pic_prefix = "assets/es.png";
+        this.text_prefix = "+52";
         this.prefjix = "+521";
     }
     ngOnInit() {
@@ -20346,11 +20351,13 @@ let LoginPage = class LoginPage {
             let lang = localStorage.getItem('lenguage');
             this.server.globalize(localStorage.getItem('lenguage'));
             if (lang == 'es') {
-                this.img_prefjix = "assets/es.png";
+                this.pic_prefix = "assets/es.png";
+                this.text_prefix = "Selecciona Tu Prefijo";
                 this.prefjix = "+521";
             }
             else if (lang == 'en') {
-                this.img_prefjix = "assets/en.png";
+                this.pic_prefix = "assets/en.png";
+                this.text_prefix = "Select Your Prefix";
                 this.prefjix = "+1";
             }
         }
@@ -20375,7 +20382,7 @@ let LoginPage = class LoginPage {
         });
     }
     login() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, function* () {
             const loading = yield this.loadingController.create({
                 mode: 'md'
             });
@@ -20384,17 +20391,23 @@ let LoginPage = class LoginPage {
                 let phone = this.prefjix + this.phone.value.toString();
                 this.phone_view = phone;
                 this.resend_stat = false;
-                _service_fbConfig__WEBPACK_IMPORTED_MODULE_4__.default.auth().signInWithPhoneNumber(phone, this.windowsRef.recaptchaVerifier).then(confirmationResult => {
-                    this.windowsRef.confirmationResult = confirmationResult;
-                    localStorage.setItem('confirmationResult', JSON.stringify(this.windowsRef.confirmationResult));
+                this.firebaseAuthentication.verifyPhoneNumber(phone, 3000).then((verifyID) => {
+                    localStorage.setItem('confirmationResult', verifyID);
                     localStorage.setItem('phone', this.phone.value.toString());
                     loading.dismiss();
                     this.nav.navigateForward('/chkphone');
-                }).catch(fail => {
-                    console.log('fail: ' + fail);
-                    this.presentToast(fail, "danger");
-                    loading.dismiss();
                 });
+                // firebase.auth().signInWithPhoneNumber(phone,this.windowsRef.recaptchaVerifier).then(confirmationResult => {
+                //   this.windowsRef.confirmationResult = confirmationResult;
+                //   localStorage.setItem('confirmationResult',JSON.stringify(this.windowsRef.confirmationResult));
+                //   localStorage.setItem('phone',this.phone.value.toString());
+                //   loading.dismiss();
+                //   this.nav.navigateForward('/chkphone');
+                // }).catch(fail => {
+                //   console.log('fail: '+fail);
+                //   this.presentToast(fail,"danger");
+                //   loading.dismiss();
+                // });
             }
         });
     }
@@ -20402,7 +20415,7 @@ let LoginPage = class LoginPage {
         this.verifyCode = false;
     }
     presentToast(txt, color) {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, function* () {
             const toast = yield this.toastController.create({
                 message: txt,
                 duration: 3000,
@@ -20413,25 +20426,54 @@ let LoginPage = class LoginPage {
             toast.present();
         });
     }
+    changePrefix() {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, function* () {
+            const actionSheet = yield this.actionSheetController.create({
+                header: this.text_prefix,
+                cssClass: 'my-custom-class',
+                buttons: [
+                    {
+                        text: 'México',
+                        icon: 'assets/prefix/mexico.svg',
+                        handler: () => {
+                            this.pic_prefix = "assets/es.png";
+                            this.prefjix = "+521";
+                        }
+                    },
+                    {
+                        text: 'Usa',
+                        icon: 'assets/prefix/usa.svg',
+                        handler: () => {
+                            this.pic_prefix = "assets/en.png";
+                            this.prefjix = "+1";
+                        }
+                    }
+                ]
+            });
+            yield actionSheet.present();
+        });
+    }
     goBck() {
         this.nav.navigateRoot('welcome');
     }
 };
 LoginPage.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__.ActivatedRoute },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__.ActivatedRoute },
     { type: _service_service_service__WEBPACK_IMPORTED_MODULE_2__.ServiceService },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.ToastController },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.NavController },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.LoadingController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.ToastController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.NavController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.LoadingController },
     { type: _service_events_service__WEBPACK_IMPORTED_MODULE_3__.EventsService },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.Platform },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.MenuController }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.Platform },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.MenuController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.ActionSheetController },
+    { type: _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_5__.FirebaseAuthentication }
 ];
 LoginPage.propDecorators = {
-    phone: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_8__.ViewChild, args: ["phone", { static: false },] }]
+    phone: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_9__.ViewChild, args: ["phone", { static: false },] }]
 };
-LoginPage = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.Component)({
+LoginPage = (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_9__.Component)({
         selector: 'app-login',
         template: _raw_loader_login_page_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_login_page_scss__WEBPACK_IMPORTED_MODULE_1__.default]
@@ -20468,7 +20510,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header no-border class=\"ion-no-border\">\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-back-button text=\"\" icon=\"chevron-back-outline\"></ion-back-button>\n      </ion-buttons>\n      <ion-title>\n      </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content fullscreen>\n\n<!--Send SMS for otp-->\n<div class=\"wrap-content\">\n  <div>\n    <div class=\"form\">\n        <ion-list lines=\"none\">\n            <h1>{{'phone_number' | translate}}</h1>\n            <p class=\"d-flex ion-text-left\" style=\"font-weight: 500;font-size: 14px;\">\n              {{'code_sms' | translate}}\n            </p>\n\n            <ion-item lines=\"none\">\n              <div class=\"item_inner d-flex\">\n                <h3 class=\"d-flex\">\n                  <img src=\"{{img_prefjix}}\" alt=\"mex_flag\" style=\"max-width: 30%;\">\n                  &nbsp;&nbsp;<ion-label>{{prefjix}}</ion-label>\n                </h3>\n                <ion-input mode=\"md\" #phone pattern=\"[0-9]{3}[0-9]{3}[0-9]{4}\" maxlength=\"10\" clearInput minlength=\"10\" name=\"phone\" type=\"tel\" placeholder=\"477 123 4567\"></ion-input>\n              </div>\n            </ion-item>\n\n        </ion-list>\n    </div>\n\n    <div style=\"text-align: center;\">\n      <div id=\"recaptcha-container\" style=\"display: inline-block;\"></div>\n    </div>\n  </div>\n</div>\n\n<ion-button class=\"btn_next\" *ngIf=\"isKeyboardHide\" (click)=\"login()\" color=\"dark\" shape=\"round\" style=\"--border-radius:25px;\">\n  {{'next' | translate}}\n  <ion-icon slot=\"end\" name=\"chevron-forward-outline\"></ion-icon>\n</ion-button>\n<!--Send SMS for otp-->\n</ion-content>\n\n<ion-footer style=\"padding: 15px;text-align: center;\" *ngIf=\"isKeyboardHide\">\n  <ion-label color=\"medium\"  mode=\"ios\" routerLink=\"/signup\" routerDirection=\"forward\">{{'no_account' | translate}} <b>{{'sign_up' | translate}}</b></ion-label> \n</ion-footer>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header no-border class=\"ion-no-border\">\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-back-button text=\"\" icon=\"chevron-back-outline\"></ion-back-button>\n      </ion-buttons>\n      <ion-title>\n      </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content fullscreen>\n\n<!--Send SMS for otp-->\n<div class=\"wrap-content\">\n  <div>\n    <div class=\"form\">\n        <ion-list lines=\"none\">\n            <h1>{{'phone_number' | translate}}</h1>\n            <p class=\"d-flex ion-text-left\" style=\"font-weight: 500;font-size: 14px;\">\n              {{'code_sms' | translate}}\n            </p>\n\n            <ion-item lines=\"none\">\n              <div class=\"item_inner d-flex\">\n                <h3 class=\"d-flex\" (click)=\"changePrefix()\">\n                  <img src=\"{{pic_prefix}}\" alt=\"mex_flag\" style=\"max-width: 30%;\">\n                  &nbsp;&nbsp;<ion-label>{{prefjix}}</ion-label>\n                </h3>\n                <ion-input mode=\"md\" #phone pattern=\"[0-9]{3}[0-9]{3}[0-9]{4}\" maxlength=\"10\" clearInput minlength=\"10\" name=\"phone\" type=\"tel\" placeholder=\"477 123 4567\"></ion-input>\n              </div>\n            </ion-item>\n\n        </ion-list>\n    </div>\n\n    <div style=\"text-align: center;\">\n      <div id=\"recaptcha-container\" style=\"display: inline-block;\"></div>\n    </div>\n  </div>\n</div>\n\n<ion-button class=\"btn_next\" *ngIf=\"isKeyboardHide\" (click)=\"login()\" color=\"dark\" shape=\"round\" style=\"--border-radius:25px;\">\n  {{'next' | translate}}\n  <ion-icon slot=\"end\" name=\"chevron-forward-outline\"></ion-icon>\n</ion-button>\n<!--Send SMS for otp-->\n</ion-content>\n\n<ion-footer style=\"padding: 15px;text-align: center;\" *ngIf=\"isKeyboardHide\">\n  <ion-label color=\"medium\"  mode=\"ios\" routerLink=\"/signup\" routerDirection=\"forward\">{{'no_account' | translate}} <b>{{'sign_up' | translate}}</b></ion-label> \n</ion-footer>");
 
 /***/ })
 

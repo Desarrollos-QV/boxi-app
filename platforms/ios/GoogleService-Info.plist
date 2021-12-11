@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>4044870340-bgge7v1btec8obl88i4v482eaquvdbmm.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.4044870340-bgge7v1btec8obl88i4v482eaquvdbmm</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>4044870340-bsbrgegq1o0a1k2o030pdakvutkh10k8.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA_wAJvXQ5740u3M1JE5vOI5hAWdon7n7Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>4044870340</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.boxi.2app</string>
+	<key>PROJECT_ID</key>
+	<string>boxi-driver-b1102</string>
+	<key>STORAGE_BUCKET</key>
+	<string>boxi-driver-b1102.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:4044870340:ios:b7862eb2d9400f67146f91</string>
+	<key>DATABASE_URL</key>
+	<string>https://boxi-driver-b1102-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

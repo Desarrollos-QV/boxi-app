@@ -20300,15 +20300,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "LoginPage": () => (/* binding */ LoginPage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 4762);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 4762);
 /* harmony import */ var _raw_loader_login_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./login.page.html */ 6770);
 /* harmony import */ var _login_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.page.scss */ 1339);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ 9895);
 /* harmony import */ var _service_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! .././service/service.service */ 6794);
 /* harmony import */ var _service_events_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! .././service/events.service */ 4665);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ 476);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ 476);
 /* harmony import */ var _service_fbConfig__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! .././service/fbConfig */ 3648);
+/* harmony import */ var _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/firebase-authentication/ngx */ 569);
+
 
 
 
@@ -20319,7 +20321,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let LoginPage = class LoginPage {
-    constructor(route, server, toastController, nav, loadingController, events, platform, menu, actionSheetController) {
+    constructor(route, server, toastController, nav, loadingController, events, platform, menu, actionSheetController, firebaseAuthentication) {
         this.route = route;
         this.server = server;
         this.toastController = toastController;
@@ -20329,6 +20331,7 @@ let LoginPage = class LoginPage {
         this.platform = platform;
         this.menu = menu;
         this.actionSheetController = actionSheetController;
+        this.firebaseAuthentication = firebaseAuthentication;
         this.user_id = null;
         this.verifyCode = false;
         this.isKeyboardHide = true;
@@ -20379,7 +20382,7 @@ let LoginPage = class LoginPage {
         });
     }
     login() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, function* () {
             const loading = yield this.loadingController.create({
                 mode: 'md'
             });
@@ -20388,17 +20391,23 @@ let LoginPage = class LoginPage {
                 let phone = this.prefjix + this.phone.value.toString();
                 this.phone_view = phone;
                 this.resend_stat = false;
-                _service_fbConfig__WEBPACK_IMPORTED_MODULE_4__.default.auth().signInWithPhoneNumber(phone, this.windowsRef.recaptchaVerifier).then(confirmationResult => {
-                    this.windowsRef.confirmationResult = confirmationResult;
-                    localStorage.setItem('confirmationResult', JSON.stringify(this.windowsRef.confirmationResult));
+                this.firebaseAuthentication.verifyPhoneNumber(phone, 3000).then((verifyID) => {
+                    localStorage.setItem('confirmationResult', verifyID);
                     localStorage.setItem('phone', this.phone.value.toString());
                     loading.dismiss();
                     this.nav.navigateForward('/chkphone');
-                }).catch(fail => {
-                    console.log('fail: ' + fail);
-                    this.presentToast(fail, "danger");
-                    loading.dismiss();
                 });
+                // firebase.auth().signInWithPhoneNumber(phone,this.windowsRef.recaptchaVerifier).then(confirmationResult => {
+                //   this.windowsRef.confirmationResult = confirmationResult;
+                //   localStorage.setItem('confirmationResult',JSON.stringify(this.windowsRef.confirmationResult));
+                //   localStorage.setItem('phone',this.phone.value.toString());
+                //   loading.dismiss();
+                //   this.nav.navigateForward('/chkphone');
+                // }).catch(fail => {
+                //   console.log('fail: '+fail);
+                //   this.presentToast(fail,"danger");
+                //   loading.dismiss();
+                // });
             }
         });
     }
@@ -20406,7 +20415,7 @@ let LoginPage = class LoginPage {
         this.verifyCode = false;
     }
     presentToast(txt, color) {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, function* () {
             const toast = yield this.toastController.create({
                 message: txt,
                 duration: 3000,
@@ -20418,7 +20427,7 @@ let LoginPage = class LoginPage {
         });
     }
     changePrefix() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, function* () {
             const actionSheet = yield this.actionSheetController.create({
                 header: this.text_prefix,
                 cssClass: 'my-custom-class',
@@ -20449,21 +20458,22 @@ let LoginPage = class LoginPage {
     }
 };
 LoginPage.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__.ActivatedRoute },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__.ActivatedRoute },
     { type: _service_service_service__WEBPACK_IMPORTED_MODULE_2__.ServiceService },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.ToastController },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.NavController },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.LoadingController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.ToastController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.NavController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.LoadingController },
     { type: _service_events_service__WEBPACK_IMPORTED_MODULE_3__.EventsService },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.Platform },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.MenuController },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.ActionSheetController }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.Platform },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.MenuController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.ActionSheetController },
+    { type: _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_5__.FirebaseAuthentication }
 ];
 LoginPage.propDecorators = {
-    phone: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_8__.ViewChild, args: ["phone", { static: false },] }]
+    phone: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_9__.ViewChild, args: ["phone", { static: false },] }]
 };
-LoginPage = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.Component)({
+LoginPage = (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_9__.Component)({
         selector: 'app-login',
         template: _raw_loader_login_page_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_login_page_scss__WEBPACK_IMPORTED_MODULE_1__.default]

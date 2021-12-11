@@ -5,6 +5,8 @@ import { EventsService } from '.././service/events.service';
 import { ToastController,NavController,Platform,LoadingController,IonInput, MenuController, ActionSheetController } from '@ionic/angular';
 import firebase from '.././service/fbConfig';
 
+import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -42,9 +44,10 @@ export class LoginPage implements OnInit {
     public events: EventsService,
     public platform: Platform,
     public menu: MenuController,
-    public actionSheetController: ActionSheetController
+    public actionSheetController: ActionSheetController,
+    public firebaseAuthentication: FirebaseAuthentication
   ){
-    
+   
   }
 
   ngOnInit() {
@@ -104,16 +107,11 @@ export class LoginPage implements OnInit {
         this.phone_view = phone;
         this.resend_stat = false;
         
-        firebase.auth().signInWithPhoneNumber(phone,this.windowsRef.recaptchaVerifier).then(confirmationResult => {
-          this.windowsRef.confirmationResult = confirmationResult;
-          localStorage.setItem('confirmationResult',JSON.stringify(this.windowsRef.confirmationResult));
-          localStorage.setItem('phone',this.phone.value.toString());
-          loading.dismiss();
-          this.nav.navigateForward('/chkphone');
-        }).catch(fail => {
-          console.log('fail: '+fail);
-          this.presentToast(fail,"danger");
-          loading.dismiss();
+        this.firebaseAuthentication.verifyPhoneNumber(phone,3000).then((verifyID:any) => {
+            localStorage.setItem('confirmationResult',verifyID);
+            localStorage.setItem('phone',this.phone.value.toString());
+            loading.dismiss();
+            this.nav.navigateForward('/chkphone');
         });
     }
   }

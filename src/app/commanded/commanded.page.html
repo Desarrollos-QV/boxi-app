@@ -191,7 +191,7 @@
         </ion-avatar>
         <ion-label>
           <h4>{{item.structured_formatting.main_text}}</h4>
-          <p style="font-size: 12px;font-family: 'SF Pro Display';" *ngIf="item.structured_formatting.secondary_text">
+          <p style="font-size: 12px;" *ngIf="item.structured_formatting.secondary_text">
             {{item.structured_formatting.secondary_text | slice:0:45}} 
             <i *ngIf="item.structured_formatting.secondary_text.length > 45">...</i>
           </p>
@@ -220,7 +220,7 @@
       <ion-label>
         <h4>{{'your_location' | translate}}</h4>
         
-        <p style="font-size: 12px;font-family: 'SF Pro Display';">
+        <p style="font-size: 12px;">
           {{LocationNow | slice:0:45}} <i *ngIf="LocationNow.length > 45">...</i>
         </p>
       </ion-label>
@@ -242,7 +242,7 @@
             <h4 *ngIf="add.type">{{add.type}}</h4>
             <h4 *ngIf="!add.type">{{'not_especific' | translate}}</h4>
             
-            <p style="font-size: 12px;font-family: 'SF Pro Display';">
+            <p style="font-size: 12px;">
               {{add.address | slice:0:45}} <i *ngIf="add.address.length > 45">...</i>
             </p>
           </ion-label>
@@ -319,8 +319,7 @@
     <ion-button expand="block" (click)="next_step('add_destin')" [disabled]="first_instr == ''">
       {{'next' | translate}}
     </ion-button>
-  </ion-card>
-
+  </ion-card> 
   
   <ion-card class="foot" *ngIf="step_comm == 3">
     <ion-button expand="block" (click)="next_step('ready')" [disabled]="second_instr == ''">

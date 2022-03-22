@@ -1,15 +1,15 @@
-<ion-content fullscreen>
+<ion-content style="padding-top:25px;">
 
   <ion-toolbar color="success">
     <ion-buttons slot="start">
       <ion-menu-button mode="ios">
-        <img src="https://image.flaticon.com/icons/png/512/584/584840.png" alt="Menu">
+        <img src="assets/menu.png" alt="Menu">
       </ion-menu-button>
     </ion-buttons>
 
     <ion-text id="icon_head_move" slot="end"  #searchicon>
       <img src="assets/outline_local_tracking.png" alt="orderview" *ngIf="serviceComm.length > 0" routerLink="/done-comm" routerDirection="forward">
-      <img src="https://image.flaticon.com/icons/png/128/1198/1198479.png" alt="history" *ngIf="serviceComm.length == 0" routerLink="/history" routerDirection="forward">
+      <img src="assets/history_icon.png" alt="history" *ngIf="serviceComm.length == 0" routerLink="/history" routerDirection="forward">
       <img src="assets/wallet_icon.png" class="wallet_icon" alt="wallet" routerLink="/option-pay" routerDirection="forward">
     </ion-text>
   </ion-toolbar>
@@ -38,31 +38,18 @@
           <ion-card>
             <ion-card-header>
               <ion-card-subtitle>
-                <img src="https://image.flaticon.com/icons/png/512/1254/1254761.png" style="width:75px;" alt="">
+                <img src="assets/outline_local_tracking.png" style="width:75px;" alt="">
               </ion-card-subtitle>
               <ion-card-title>{{'make_shipment' | translate}}</ion-card-title>
             </ion-card-header>
           </ion-card>
-        </ion-col>
-
-        <!--
-        <ion-col size-lg="4" size-md="4" size-sm="12" size="12">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-subtitle>
-                <img src="https://image.flaticon.com/icons/png/512/1255/1255248.png" style="width:75px;" alt="">
-              </ion-card-subtitle>
-              <ion-card-title>Ingresar Código</ion-card-title>
-            </ion-card-header>
-          </ion-card>
-        </ion-col>
-        -->
+        </ion-col> 
 
         <ion-col size-lg="4" size-md="4" size-sm="12" size="12" routerLink="/history" routerDirection="forward">
           <ion-card>
             <ion-card-header>
               <ion-card-subtitle>
-                <img src="https://image.flaticon.com/icons/png/128/1198/1198479.png" style="width:75px;" alt="">
+                <img src="assets/history_icon.png" style="width:75px;" alt="">
               </ion-card-subtitle>
               <ion-card-title>{{'shipments' | translate}}</ion-card-title>
             </ion-card-header>
@@ -73,7 +60,7 @@
           <ion-card>
             <ion-card-header>
               <ion-card-subtitle>
-                <img src="https://image.flaticon.com/icons/png/128/1235/1235557.png" style="width:75px;" alt="">
+                <img src="assets/promotions_icon.png" style="width:75px;" alt="">
               </ion-card-subtitle>
               <ion-card-title>{{'promotions' | translate}}</ion-card-title>
             </ion-card-header>
@@ -84,7 +71,7 @@
           <ion-card>
             <ion-card-header>
               <ion-card-subtitle>
-                <img src="https://image.flaticon.com/icons/png/512/1246/1246483.png" style="width:75px;" alt="">
+                <img src="assets/account_icon.png" style="width:75px;" alt="">
               </ion-card-subtitle>
               <ion-card-title>{{'profile' | translate}}</ion-card-title>
             </ion-card-header>

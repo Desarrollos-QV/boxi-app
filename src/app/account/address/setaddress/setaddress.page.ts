@@ -79,8 +79,6 @@ export class SetaddressPage implements OnInit {
         "lng"          : data.results[0].geometry.location.lng,
         "address"      : this.LocationNow
       });
-
-      console.log(this.MyLocation);
     });
    
   }

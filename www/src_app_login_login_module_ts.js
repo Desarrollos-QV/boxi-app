@@ -20397,17 +20397,6 @@ let LoginPage = class LoginPage {
                     loading.dismiss();
                     this.nav.navigateForward('/chkphone');
                 });
-                // firebase.auth().signInWithPhoneNumber(phone,this.windowsRef.recaptchaVerifier).then(confirmationResult => {
-                //   this.windowsRef.confirmationResult = confirmationResult;
-                //   localStorage.setItem('confirmationResult',JSON.stringify(this.windowsRef.confirmationResult));
-                //   localStorage.setItem('phone',this.phone.value.toString());
-                //   loading.dismiss();
-                //   this.nav.navigateForward('/chkphone');
-                // }).catch(fail => {
-                //   console.log('fail: '+fail);
-                //   this.presentToast(fail,"danger");
-                //   loading.dismiss();
-                // });
             }
         });
     }

@@ -95,13 +95,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ChkphonePage": () => (/* binding */ ChkphonePage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 4762);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 4762);
 /* harmony import */ var _raw_loader_chkphone_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./chkphone.page.html */ 267);
 /* harmony import */ var _chkphone_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chkphone.page.scss */ 9544);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 7716);
 /* harmony import */ var _service_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! .././service/service.service */ 6794);
 /* harmony import */ var _service_events_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! .././service/events.service */ 4665);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ 476);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ 476);
+/* harmony import */ var _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/firebase-authentication/ngx */ 569);
+
 
 
 
@@ -110,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ChkphonePage = class ChkphonePage {
-    constructor(server, toastController, nav, loadingController, events, platform, menu) {
+    constructor(server, toastController, nav, loadingController, events, platform, menu, firebaseAuthentication) {
         this.server = server;
         this.toastController = toastController;
         this.nav = nav;
@@ -118,12 +120,13 @@ let ChkphonePage = class ChkphonePage {
         this.events = events;
         this.platform = platform;
         this.menu = menu;
+        this.firebaseAuthentication = firebaseAuthentication;
         this.user_id = 'null';
     }
     ngOnInit() {
-        this.windowsRef = this.server.windowRef;
+        // this.windowsRef = this.server.windowRef;
         this.phone_view = localStorage.getItem('phone');
-        this.windowsRef.recaptchaVerifier = localStorage.getItem('confirmationResult');
+        this.confirmationResult = localStorage.getItem('confirmationResult');
     }
     ionViewWillEnter() {
         this.menu.enable(false);
@@ -138,14 +141,14 @@ let ChkphonePage = class ChkphonePage {
         }
     }
     valid() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
             const loading = yield this.loadingController.create({
                 message: 'Validando...',
             });
             yield loading.present();
             if (this.Code && this.Code.toString().length >= 4 && this.Code.toString().length <= 8) {
                 let verificationCode = this.Code.toString();
-                this.windowsRef.confirmationResult.confirm(verificationCode).then(result => {
+                this.firebaseAuthentication.signInWithVerificationId(this.confirmationResult, verificationCode).then((data) => {
                     var allData = {
                         user_id: this.user_id,
                         phone: localStorage.getItem('phone')
@@ -192,7 +195,7 @@ let ChkphonePage = class ChkphonePage {
         });
     }
     presentToast(txt, color) {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
             const toast = yield this.toastController.create({
                 message: txt,
                 duration: 3000,
@@ -206,18 +209,19 @@ let ChkphonePage = class ChkphonePage {
 };
 ChkphonePage.ctorParameters = () => [
     { type: _service_service_service__WEBPACK_IMPORTED_MODULE_2__.ServiceService },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.ToastController },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.NavController },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.LoadingController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.ToastController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.NavController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.LoadingController },
     { type: _service_events_service__WEBPACK_IMPORTED_MODULE_3__.EventsService },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.Platform },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.MenuController }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.Platform },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.MenuController },
+    { type: _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_4__.FirebaseAuthentication }
 ];
 ChkphonePage.propDecorators = {
-    otp1: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_6__.ViewChild, args: ["otp1", { static: false },] }]
+    otp1: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_7__.ViewChild, args: ["otp1", { static: false },] }]
 };
-ChkphonePage = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
+ChkphonePage = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_7__.Component)({
         selector: 'app-chkphone',
         template: _raw_loader_chkphone_page_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_chkphone_page_scss__WEBPACK_IMPORTED_MODULE_1__.default]

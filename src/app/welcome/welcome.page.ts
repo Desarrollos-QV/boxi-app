@@ -54,7 +54,7 @@ export class WelcomePage implements OnInit {
 
   ngOnInit()
   {
-     this.platform.ready().then( () => {
+    this.platform.ready().then( () => {
 
     });
   }

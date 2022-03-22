@@ -81,8 +81,7 @@ export class HomePage implements OnInit {
   {
     let city_id = localStorage.getItem('city_id');
     var lid = localStorage.getItem('lid') ? localStorage.getItem('lid') : 0;
-    this.server.homepage(city_id+"?lid="+lid).subscribe((response:any) => {
-      console.log(response);
+    this.server.homepage(city_id+"?lid="+lid).subscribe((response:any) => { 
       this.text = response.data.text;
 
       this.events.publish('text', this.text);

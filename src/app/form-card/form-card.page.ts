@@ -85,8 +85,7 @@ export class FormCardPage implements OnInit {
       }
     });
   }
-
-
+ 
   createCharge(data)
   {
 

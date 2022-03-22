@@ -157,7 +157,6 @@ let SetaddressPage = class SetaddressPage {
                 "lng": data.results[0].geometry.location.lng,
                 "address": this.LocationNow
             });
-            console.log(this.MyLocation);
         });
     }
     search(ev) {
